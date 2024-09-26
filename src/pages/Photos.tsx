@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Image, { StaticImageData } from 'next/image';
 import { useState, useRef } from 'react';
 import styled from '@emotion/styled';
-
+import React from 'react';
 import { travelImages } from 'public/images/travel';
 
 const possibleRotations = [1.3, -1.3, 1.3, -1.3, 1.3, -1.3];
@@ -191,3 +191,4 @@ const ScrollableContainer = styled.div`
     cursor: grabbing; // 当拖动时显示抓取光标
   }
 `;
+export default Photos;
