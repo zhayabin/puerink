@@ -1,6 +1,5 @@
 import antelope from './antelope.jpg';
 import bura from './bura.jpg';
-import image11 from './crete.JPG';
 import croatia2 from './croatia2.jpg';
 import croatia3 from './croatia3.jpg';
 import image3 from './croatia.jpg';
