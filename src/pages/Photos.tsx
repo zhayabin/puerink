@@ -23,7 +23,8 @@ const Photo = ({
   const [isTouched, setIsTouched] = useState(false); // 用于触摸设备的状态
 
   // 当手指触摸时显示效果
-  const handleTouchStart = () => {
+  const handleTouchStart = (e: React.TouchEvent) => {
+    e.preventDefault(); // 阻止长按时弹出的选项框
     setIsTouched(true);
   };
 
@@ -183,6 +184,7 @@ const ScrollableContainer = styled.div`
   padding-bottom: 4rem;
   white-space: nowrap; // 禁止图片换行，确保所有图片在同一行
   cursor: grab; // 当鼠标在容器上时显示抓手光标
+  user-select: none; /* 禁止选中 */
   &::-webkit-scrollbar {
     display: none; // 隐藏滚动条
   }

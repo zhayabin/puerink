@@ -105,7 +105,7 @@ const GalleryContainer = styled.div`
   padding: 0rem;
   padding-left: 0rem;
   padding-right: 0.5rem;
-  margin-top: 0.rem;
+  margin-top: 0.8rem;
   margin-bottom: 0rem;
   user-select: none; /* 禁止选中 */
   pointer-events: none; /* 禁止拖动和交互 */
