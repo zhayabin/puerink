@@ -163,7 +163,6 @@ const StyledWrapper = styled(Link)`
       > .tags {
         display: flex; // 使用 flexbox
         gap: 0.5rem; // 间距
-        justify-content: flex-end; // 靠右对齐
       }
     }
   }
