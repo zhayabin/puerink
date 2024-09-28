@@ -1,12 +1,12 @@
-import 1火车 from './1火车.jpg';
-import 2勐麻河 from './2勐麻河.jpg';
-import 3勐麻河交汇 from './3勐麻河交汇.JPG';
-import 4树上采摘 from './4树上采摘.JPG';
-import 6吊在茶树上 from './6吊在茶树上.jpg';
-import 7勐麻河土基房 from './7勐麻河土基房.jpg';
-import 8在勐麻河竹林 from './8在勐麻河竹林.JPG';
-import 9茶树和我 from './9茶树和我.JPG';
-import 10河边休息 from './10河边休息.png';
+import 火车 from './1火车.jpg';
+import 勐麻河 from './2勐麻河.jpg';
+import 勐麻河交汇 from './3勐麻河交汇.JPG';
+import 树上采摘 from './4树上采摘.JPG';
+import 吊在茶树上 from './6吊在茶树上.jpg';
+import 勐麻河土基房 from './7勐麻河土基房.jpg';
+import 在勐麻河竹林 from './8在勐麻河竹林.JPG';
+import 茶树和我 from './9茶树和我.JPG';
+import 河边休息 from './10河边休息.png';
 
 export const travelImages = [
   { img: 1火车, title: '回老家, 昆明', alt: 'Picture taken in 回老家, 昆明' },
