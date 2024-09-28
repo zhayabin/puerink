@@ -2,6 +2,7 @@ import 火车 from './1火车.jpg';
 import 勐麻河 from './2勐麻河.jpg';
 import 勐麻河交汇 from './3勐麻河交汇.jpg';
 import 树上采摘 from './4树上采摘.jpg';
+import 白花 from './5白花.jpg';
 import 吊在茶树上 from './6吊在茶树上.jpg';
 import 勐麻河土基房 from './7勐麻河土基房.jpg';
 import 在勐麻河竹林 from './8在勐麻河竹林.jpg';
