@@ -1,115 +1,56 @@
-import antelope from './antelope.jpg';
-import bura from './bura.jpg';
-import image10 from './canaries.jpeg';
-import image11 from './crete.jpeg';
-import croatia2 from './croatia2.jpg';
-import croatia3 from './croatia3.jpg';
-import image3 from './croatia.jpeg';
-import croatia from './croatia.jpg';
-import image12 from './czechia.jpeg';
-import image5 from './france.jpeg';
-import image7 from './germany.jpeg';
-import grandcanyon from './grandcanyon.jpg';
-import griffith from './griffith.jpg';
-import grindelwald from './grindelwald.jpg';
-import guns from './guns.jpeg';
-import image6 from './italy.jpeg';
-import jungfraujoch2 from './jungfraujoch2.jpg';
-import lasvegas2 from './lasvegas2.jpeg';
-import lasvegas from './lasvegas.jpg';
-import lauterbrunnen from './lauterbrunnen.jpg';
-import lucerne from './lucerne.jpg';
-import matterhorn2 from './matterhorn2.jpg';
-import matterhorn from './matterhorn.jpg';
-import image13 from './mexico.jpeg';
-import image14 from './monaco.jpeg';
-import image4 from './netherlands.jpeg';
-import paros from './paros.jpg';
-import poland2 from './poland2.jpg';
-import poland from './poland.jpg';
-import sedona from './sedona.jpg';
-import image9 from './spain.jpeg';
-import image2 from './switzerland.jpeg';
-import image8 from './uk.jpeg';
-import image1 from './usa.jpeg';
-import zabkowice from './zabkowice.jpg';
-import zurich from './zurich.jpg';
+import 冰岛老寨 from './冰岛老寨.jpg';
+import 冰岛老寨2 from './冰岛老寨2.jpg';
+import 采茶归来 from './采茶归来.jpg';
+import 茶山木瓜 from './茶山木瓜.jpg';
+import 茶山农家 from './茶山农家.jpg';
+import 茶山野花 from './茶山野花.jpg';
+import 茶树砍伐 from './茶树砍伐.jpg';
+import 茶树下 from './茶树下.jpg';
+import 单株采摘 from './单株采摘.jpg';
+import 干茶审评 from './干茶审评.jpg';
+import 河边休憩 from './河边休憩.jpg';
+import 澜沧江 from './澜沧江.jpg';
+import 澜沧交界 from './澜沧交界.jpg';
+import 澜沧日落 from './澜沧日落.jpg';
+import 毛毛虫 from './毛毛虫.jpg';
+import 去茶地 from './去茶地.jpg';
+import 去茶地直播 from './去茶地直播.jpg';
+import 上树采摘 from './上树采摘.jpg';
+import 深入箐沟 from './深入箐沟.jpg';
+import 双江铺面 from './双江铺面.jpg';
+import 双江水果 from './双江水果.jpg';
+import 双江水果2 from './双江水果2.jpg';
+import 鲜叶 from './鲜叶.jpg';
+import 小勐峨看双江 from './小勐峨看双江.jpg';
+import 叶底审评 from './叶底审评.jpg';
+import 叶底审评2 from './叶底审评2.jpg';
 
 export const travelImages = [
-  { img: image1, title: 'Horseshoe Bend, USA', alt: 'Picture taken in Horseshoe, USA' },
-  { img: antelope, title: 'Antelope Canyon, USA', alt: 'Picture taken in Antelope Canyon, USA' },
-  { img: grandcanyon, title: 'Grand Canyon, USA', alt: 'Picture taken in Grand Canyon, USA' },
-  { img: sedona, title: 'Sedona, USA', alt: 'Picture taken in Sedona, USA' },
-  { img: lasvegas, title: 'Las Vegas, USA', alt: 'Picture taken in Las Vegas, USA' },
-  { img: lasvegas2, title: 'Las Vegas, USA', alt: 'Picture taken in Las Vegas, USA' },
-  {
-    img: griffith,
-    title: 'Griffith Observatory, USA',
-    alt: 'Picture taken in Griffith Observatory, USA',
-  },
-  { img: poland, title: 'Wrocław, Poland', alt: 'Picture taken in Wrocław, Poland' },
-  { img: poland2, title: 'Ustronie, Poland', alt: 'Picture taken in Ustronie, Poland' },
-  { img: zabkowice, title: 'Zabkowice, Poland', alt: 'Picture taken in Zabkowice, Poland' },
-  {
-    img: guns,
-    title: "Guns n' Roses Concert, Warsaw",
-    alt: "Picture taken Guns n' Roses Concert, Warsaw",
-  },
-  { img: bura, title: 'Bura, Wrocław, Poland', alt: 'Picture of my cat, Bura' },
-  {
-    img: croatia,
-    title: 'Krka-Waterfalls, Croatia',
-    alt: 'Picture taken in Krka-Waterfalls, Croatia',
-  },
-  {
-    img: croatia2,
-    title: 'Krka-Waterfalls, Croatia',
-    alt: 'Picture taken in Krka-Waterfalls, Croatia',
-  },
-  { img: image3, title: 'Dubrovnik, Croatia', alt: 'Picture taken in Dubrovnik, Croatia' },
-  {
-    img: croatia3,
-    title: 'Sadurad Island, Croatia',
-    alt: 'Picture taken in Sadurad Island, Croatia',
-  },
-  { img: paros, title: 'Paros, Greece', alt: 'Picture taken in Paros, Greece' },
-  {
-    img: image2,
-    title: 'Jungfraujoch, Switzerland',
-    alt: 'Picture taken on Jungraujoch, Switzerland',
-  },
-  {
-    img: jungfraujoch2,
-    title: 'Jungfraujoch, Switzerland',
-    alt: 'Picture taken on Jungraujoch, Switzerland',
-  },
-  { img: zurich, title: 'Zurich, Switzerland', alt: 'Picture taken in Zurich, Switzerland' },
-  { img: lucerne, title: 'Lucerne, Switzerland', alt: 'Picture taken in Lucerne, Switzerland' },
-  {
-    img: lauterbrunnen,
-    title: 'Lauterbrunnen, Switzerland',
-    alt: 'Picture taken in Lauterbrunnen, Switzerland',
-  },
-  { img: matterhorn, title: 'Zermatt, Switzerland', alt: 'Picture taken in Zermatt, Switzerland' },
-  { img: matterhorn2, title: 'Zermatt, Switzerland', alt: 'Picture taken in Zermatt, Switzerland' },
-  {
-    img: grindelwald,
-    title: 'Grindelwald, Switzerland',
-    alt: 'Picture taken in Grindelwald, Switzerland',
-  },
-  { img: image4, title: 'Amsterdam, Netherlands', alt: 'Picture taken in Amsterdam, Netherlands' },
-  { img: image5, title: 'Grasse, France', alt: 'Picture taken in Grasse, France' },
-  { img: image6, title: 'Portofino, Italy', alt: 'Picture taken in Rome, Italy' },
-  { img: image7, title: 'Berlin, Germany', alt: 'Picture taken in Berlin, Germany' },
-  { img: image8, title: 'London, UK', alt: 'Picture taken in London, UK' },
-  { img: image9, title: 'Barcelona, Spain', alt: 'Picture taken in Barcelona, Spain' },
-  {
-    img: image10,
-    title: 'Fuerteventura, Canary Islands',
-    alt: 'Picture taken in Fuerteventura, Canary Islands',
-  },
-  { img: image11, title: 'Crete, Greece', alt: 'Picture taken in Crete, Greece' },
-  { img: image12, title: 'Prague, Czechia', alt: 'Picture taken in Prague, Czechia' },
-  { img: image13, title: 'Merida, Mexico', alt: 'Picture taken in Merida, Mexico' },
-  { img: image14, title: 'Monaco', alt: 'Picture taken in Monaco' },
+  { img: 冰岛老寨, title: '冰岛老寨' },
+  { img: 冰岛老寨2, title: '冰岛老寨' },
+  { img: 采茶归来, title: '采茶归来' },
+  { img: 茶山木瓜, title: '茶山木瓜' },
+  { img: 茶山农家, title: '茶山农家' },
+  { img: 茶山野花, title: '茶山野花' },
+  { img: 茶树砍伐, title: '茶树砍伐' },
+  { img: 茶树下, title: '茶树下' },
+  { img: 单株采摘, title: '单株采摘' },
+  { img: 干茶审评, title: '干茶审评' },
+  { img: 河边休憩, title: '河边休憩' },
+  { img: 澜沧江, title: '澜沧江' },
+  { img: 澜沧交界, title: '澜沧交界' },
+  { img: 澜沧日落, title: '澜沧日落' },
+  { img: 毛毛虫, title: '毛毛虫' },
+  { img: 去茶地, title: '去茶地' },
+  { img: 去茶地直播, title: '去茶地直播' },
+  { img: 上树采摘, title: '上树采摘' },
+  { img: 深入箐沟, title: '深入箐沟' },
+  { img: 双江铺面, title: '双江铺面' },
+  { img: 双江水果, title: '双江水果' },
+  { img: 双江水果2, title: '双江水果' },
+  { img: 鲜叶, title: '鲜叶' },
+  { img: 小勐峨看双江, title: '小勐峨看双江' },
+  { img: 叶底审评, title: '叶底审评' },
+  { img: 叶底审评2, title: '叶底审评' },
+
 ];

@@ -62,7 +62,7 @@ const StyledWrapper = styled.div`
 
     .top {
       padding: 0rem;
-      margin-bottom: 1rem;
+      margin-bottom: 1.3rem;
     }
 
     .list {
@@ -80,12 +80,11 @@ const StyledWrapper = styled.div`
 
       a {
         display: block;
-        padding: 0.25rem;
+        padding: 0rem;
         padding-left: 0rem;
         padding-right: 0rem;
-        margin-top: 0.rem;
+        margin-top: 0rem;
         margin-bottom: 0rem;
-        border-radius: 2rem;
         font-size: 0.875rem;
         line-height: 0.5rem;
         color: ${({ theme }) => theme.colors.gray10};

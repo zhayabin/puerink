@@ -8,7 +8,7 @@ const Footer: React.FC<Props> = () => {
   const router = useRouter()
   return (
     <StyledWrapper>
-      <a onClick={() => router.push("/")}> ◄ 返回上页</a>
+      <a onClick={() => router.push("/")}> ◄ 返回首页</a>
       <a onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
        回到顶部 ▲
       </a>

@@ -61,38 +61,23 @@ const StyledWrapper = styled.div`
     display: block; /* 在大于1024px时显示 */
 
     .top {
-      padding: 0.25rem;
+      padding: 0rem;
       margin-bottom: 0.75rem;
     }
 
     .list {
       display: flex;
       flex-wrap: wrap; /* 使标签换行 */
-      margin-bottom: 1.5rem;
-      gap: 0rem; /* 调整标签之间的间距 */
+      margin-bottom: 2rem;
+      gap: 0.5rem; /* 调整标签之间的间距 */
 
       a {
         display: block;
-        padding: 0.25rem 1rem;
-        margin-top: 0.25rem;
-        margin-bottom: 0.25rem;
-        border-radius: 2rem;
         font-size: 0.875rem;
-        line-height: 1.25rem;
         color: ${({ theme }) => theme.colors.gray10};
-        cursor: pointer;
-        white-space: nowrap; /* 防止文字换行 */
-
-        :hover {
-          background-color: ${({ theme }) => theme.colors.gray4};
-        }
 
         &[data-active="true"] {
           color: ${({ theme }) => theme.colors.gray12};
-          background-color: ${({ theme }) => theme.colors.gray4};
-
-          :hover {
-            background-color: ${({ theme }) => theme.colors.gray4};
           }
         }
       }

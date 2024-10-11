@@ -69,27 +69,10 @@ const StyledWrapper = styled(Link)`
   article {
     overflow: hidden; // 隐藏溢出内容
     position: relative; // 相对定位
-    margin-bottom: 1rem; // 底部间距
-    border-radius: 0.3rem; // 首页卡片圆角
-    background-color: ${({ theme }) =>
-      theme.scheme === "light" ? "white" : theme.colors.gray4}; // 根据主题设置背景颜色
-    transition-property: box-shadow; // 设置过渡属性
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); // 设置过渡效果
-    transition-duration: 300ms; // 设置过渡持续时间
+    margin-bottom: 0rem; // 底部间距
 
     @media (min-width: 768px) {
-      margin-bottom: 2rem; // 在大屏幕上增加底部间距
-    }
-
-    :hover {
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0),
-        0 4px 6px -2px rgba(0, 0, 0, 0); // 鼠标悬停时的阴影效果
-    }
-    > .category {
-      position: absolute; // 绝对定位类别
-      top: 1rem; // 距离顶部 1rem
-      left: 1rem; // 距离左侧 1rem
-      z-index: 10; // 提高 z-index 使其位于上层
+      margin-bottom: 1rem; // 在大屏幕上增加底部间距
     }
 
     > .thumbnail {
@@ -103,13 +86,10 @@ const StyledWrapper = styled(Link)`
       }
     }
     > .content {
-      padding: 1rem; // 内边距
+      padding: 0rem; // 标题、文字内边距
 
-      &[data-thumb="false"] {
-        padding-top: 3.5rem; // 如果没有缩略图，增加顶部内边距
-      }
       &[data-category="false"] {
-        padding-top: 1.5rem; // 如果没有类别，增加顶部内边距
+        padding-top: 0.85rem; // 标题与图片边距
       }
       > .top {
         display: flex; // 使用 flexbox
@@ -121,48 +101,36 @@ const StyledWrapper = styled(Link)`
           align-items: baseline; // 基线对齐
         }
         h2 {
-          margin-bottom: 0.5rem; // 底部间距
-          font-size: 1.125rem; // 字体大小
+          margin-bottom: 1rem; // 底部间距
+          font-size: 1.45rem; // 字体大小
           line-height: 1.75rem; // 行高
-          font-weight: 500; // 字体加粗
+          font-weight: 600; // 字体加粗
 
           cursor: pointer; // 鼠标指针变为手型
 
           @media (min-width: 768px) {
-            font-size: 1.25rem; // 在大屏幕上增加字体大小
+            font-size: 1.45rem; // 在大屏幕上增加字体大小
             line-height: 1.75rem; // 行高
           }
         }
       }
       > .date {
-        display: flex; // 使用 flexbox
-        margin-bottom: 1rem; // 底部间距
-        gap: 0.5rem; // 间距
-        align-items: center; // 垂直居中对齐
+        margin-bottom: 0rem; // 底部间距
         .content {
-          font-size: 0.875rem; // 字体大小
-          line-height: 1.25rem; // 行高
+          font-size: 1rem; // 字体大小
           color: ${({ theme }) => theme.colors.gray10}; // 字体颜色
-          @media (min-width: 768px) {
-            margin-left: 0; // 在大屏幕上重置左边距
-          }
         }
       }
       > .summary {
-        margin-bottom: 1rem; // 底部间距
+        font-size: 1rem; // 字体大小
         p {
-          display: none; // 默认不显示摘要
-          line-height: 2rem; // 行高
+          line-height: 1.75rem; // 行高
           color: ${({ theme }) => theme.colors.gray11}; // 字体颜色
-
-          @media (min-width: 768px) {
-            display: block; // 在大屏幕上显示摘要
-          }
         }
       }
       > .tags {
         display: flex; // 使用 flexbox
-        gap: 0.5rem; // 间距
+        gap: 0.85rem; // 间距
       }
     }
   }

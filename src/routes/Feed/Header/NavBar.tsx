@@ -5,7 +5,7 @@ import React, { useState } from "react";
 const NavBar: React.FC = () => {
   const [hovered, setHovered] = useState(false); // 悬停状态
 
-  const links = [{ id: 1, name: "关于 >", to: "/about" }];
+  const links = [{ id: 1, name: "关于", to: "/about" }];
 
   return (
     <StyledWrapper>
@@ -18,7 +18,7 @@ const NavBar: React.FC = () => {
           >
             <Link href={link.to}>
               <span className={hovered ? "hovered" : ""}>
-                {hovered ? "关于 >" : link.name}
+                {hovered ? "关于" : link.name}
               </span>
             </Link> {/* 根据状态切换显示内容 */}
           </li>
@@ -40,8 +40,8 @@ const StyledWrapper = styled.div`
 
     li {
       display: block;
-      margin-left: 0.5rem;
-      margin-right: 1rem;
+      margin-left: rem;
+      margin-right: rem;
       color: ${({ theme }) => theme.colors.gray11};
 
       :hover {

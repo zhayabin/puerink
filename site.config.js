@@ -18,7 +18,7 @@ const CONFIG = {
   ],
   // blog setting (required)
   blog: {
-    title: "草记",
+    title: "草记.",
     description: "诗酒茶谈，闲聊杂记",
     scheme: "system", // 'light' | 'dark' | 'system'
   },

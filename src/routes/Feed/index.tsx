@@ -1,14 +1,13 @@
 import { useState } from "react"
-
 import SearchInput from "./SearchInput"
-import { FeedHeader } from "./FeedHeader"
 import Footer from "./Footer"
+import Header from "./Header"
+import ThemeToggle from "./ThemeToggle"
 import styled from "@emotion/styled"
 import TagList from "./TagList"
 import MobileGallery from "./MobileGallery"
 import MobileTagList from "./MobileTagList"
 import Gallery from "./Gallery"
-import ServiceCard from "./ServiceCard"
 import ContactCard from "./ContactCard"
 import PostList from "./PostList"
 import PinnedPosts from "./PostList/PinnedPosts"
@@ -22,17 +21,27 @@ const Feed: React.FC<Props> = () => {
 
   return (
     <StyledWrapper>
+      <div className="guding">
+      <Header fullWidth={false} />
+
+      </div>
+
       <div
         className="lt"
         css={{
           height: `calc(100vh - ${HEADER_HEIGHT}px)`,
         }}
       >
+        <PinnedPosts q={q} />
+        <SearchInput value={q} onChange={(e) => setQ(e.target.value)} />
         <TagList />
+        <ContactCard />
+
       </div>
 
       {/* 新增的布局区域 */}
       <div className="new-section">
+
         <div className="left"> {/* 左侧内容 */}
          <MobileTagList />
         </div>
@@ -44,31 +53,17 @@ const Feed: React.FC<Props> = () => {
       <div className="mid">
 
 
-        <PinnedPosts q={q} />
-        <SearchInput value={q} onChange={(e) => setQ(e.target.value)} />
         <div className="tags">
-          <TagList />
+          <PinnedPosts q={q} />
+          <SearchInput value={q} onChange={(e) => setQ(e.target.value)} />
         </div>
-        <FeedHeader />
         <PostList q={q} />
-        <div className="footer">
-          <Footer />
-        </div>
-      </div>
 
-      <div
-        className="rt"
-        css={{
-          height: `calc(100vh - ${HEADER_HEIGHT}px)`,
-        }}
-      >
-        <Gallery />
-        <ServiceCard />
-        <ContactCard />
-        <div className="footer">
-          <Footer />
-        </div>
       </div>
+      <div className="footer">
+          <Footer />
+          <ThemeToggle />
+        </div>
     </StyledWrapper>
   )
 }
@@ -77,13 +72,29 @@ export default Feed
 
 const StyledWrapper = styled.div`
   grid-template-columns: repeat(12, minmax(0, 1fr));
-  padding: 2rem 0;
+  padding: 1rem 0;  //顶部标题距离内容的距离
   display: grid;
   gap: 1.5rem;
+  position: relative; // 添加相对定位
 
   @media (max-width: 768px) {
     display: block;
-    padding: 0.5rem 0;
+    padding: 1rem 0; //顶部标题距离内容的距离
+  }
+
+  @media (max-width: 1024px) {
+    display: block;
+    padding: 1rem 0; //顶部标题距离内容的距离
+  }
+
+  > .guding {
+
+    top: 0; // 顶部对齐
+    left: 0;
+    right: 0;
+    z-index: 10; // 确保在最上层
+    display: grid;
+    grid-column: span 12;
   }
 
   > .lt {
@@ -91,7 +102,6 @@ const StyledWrapper = styled.div`
     overflow: scroll;
     position: sticky;
     grid-column: span 2 / span 2;
-    top: ${HEADER_HEIGHT - 10}px;
 
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -99,19 +109,20 @@ const StyledWrapper = styled.div`
       display: none;
     }
 
-    @media (min-width: 1024px) {
+    @media (min-width: 1025px) {
       display: block;
     }
+
   }
 
   /* 新增的布局样式 */
   > .new-section {
     display: grid;
     grid-column: span 12 / span 12;
-    grid-template-columns: 4fr 1fr; //调整左右的比例
+    grid-template-columns: 2fr 1fr; //调整左右的比例
     gap: 1rem;
 
-    @media (min-width: 1024px) {
+    @media (min-width: 1025px) {
       display: none; /* 大于1024px时隐藏 */
     }
 
@@ -120,55 +131,39 @@ const StyledWrapper = styled.div`
     }
 
     .right {
-      padding: 0rem;
+
+      position: relative; // 确保这个区域可以相对定位
+      margin-right: -14px; // 试图将右边距设为负值以拉近
     }
   }
 
   > .mid {
     grid-column: span 12 / span 12;
+    padding-top: 0rem;
 
     @media (min-width: 1024px) {
-      grid-column: span 7 / span 7;
+      display: grid;
+      grid-column: span 10 / span 10;
+      padding-top: 0rem;
     }
 
     > .tags {
       display: block;
 
-      @media (min-width: 1024px) {
+      @media (min-width: 1025px) {
         display: none;
       }
     }
+  }
 
-    > .footer {
+  > .footer {
+      display: grid;
+      grid-column: span 12 / span 12;
+      grid-template-columns: 6fr 1fr; //调整左右的比例
       padding-bottom: 0rem;
 
-      @media (min-width: 1024px) {
-        display: none;
-      }
+
     }
   }
 
-  > .rt {
-
-    padding-top: 0.5rem;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    &::-webkit-scrollbar {
-      display: none;
-    }
-
-    display: none;
-    overflow: scroll;
-    position: sticky;
-    top: ${HEADER_HEIGHT - 10}px;
-
-    @media (min-width: 1024px) {
-      display: block;
-      grid-column: span 3 / span 3;
-    }
-
-    .footer {
-      padding-top: 0rem;
-    }
-  }
 `

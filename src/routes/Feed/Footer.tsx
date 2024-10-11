@@ -28,10 +28,9 @@ export default Footer
 
 const StyledWrapper = styled.div`
   a {
-    margin-top: 0.1rem;
-    font-size: 0.75rem;
-    padding-left: 1.45rem;
-    line-height: 1.25rem;
+    margin-top: 2rem;
+    font-size: 0.7rem;
+    line-height: 0rem;
     letter-spacing: 0.005rem;  // 设置字母之间的间距
     color: ${({ theme }) => theme.colors.gray10};
     opacity: 0.5; /* 0.0 到 1.0 之间的值，0.0 为完全透明，1.0 为完全不透明 */

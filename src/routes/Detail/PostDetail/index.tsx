@@ -44,20 +44,17 @@ const PostDetail: React.FC<Props> = () => {
 export default PostDetail
 
 const StyledWrapper = styled.div`
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
   padding-top: 3.3rem;
   padding-bottom: 3rem;
   border-radius: 1.5rem;
-  max-width: 48.7rem; //大卡片宽度
-  border-radius: 0.3rem; //点进去文章的圆角
-  background-color: ${({ theme }) =>
-    theme.scheme === "light" ? "white" : theme.colors.gray4};
+  background-color: ;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0),
     0 2px 4px -1px rgba(0, 0, 0, 0); //文章页面阴影
   margin: 0 auto;
   > article {
     margin: 0 auto;
-    max-width: 42rem; //显示内容宽度
+    max-width: 48rem; //显示内容宽度
   }
 `

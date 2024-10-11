@@ -167,9 +167,7 @@ export const Photos = () => {
           key={travelImage.img.src}
           img={travelImage.img}
           title={travelImage.title}
-          alt={travelImage.alt}
-          idx={index}
-        />
+          idx={index} alt={''}        />
       ))}
     </ScrollableContainer>
   );

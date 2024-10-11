@@ -62,7 +62,7 @@ const Gallery = () => {
                     objectFit: 'cover',
                     userSelect: 'none',
                     pointerEvents: 'none',
-                    borderRadius: '5px',
+                    borderRadius: '0px',
                     boxShadow: '1px 2px 3px rgba(0, 0, 0, 0.3)' // 添加阴影效果
                 }}
                 />
@@ -80,7 +80,7 @@ const Gallery = () => {
                     objectFit: 'cover',
                     userSelect: 'none',
                     pointerEvents: 'none',
-                    borderRadius: '5px',
+                    borderRadius: '0px',
                     boxShadow: '1px 2px 3px rgba(0, 0, 0, 0.2)' // 添加阴影效果
                 }}
                 />
@@ -116,8 +116,8 @@ const GalleryContainer = styled.div`
 `;
 
 const PhotoCard = styled.div`
-  width: 215px;
-  height: 280px;
+  width: 162px;
+  height: 210px;
   perspective: 1000px;
   position: relative;
   pointer-events: all; /* 允许卡片本身有交互 */
@@ -139,7 +139,7 @@ const TiltedImage = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-  transform: rotate(1.5deg); /* 照片倾斜角度 */
+  transform: rotate(0deg); /* 照片倾斜角度 */
 `;
 
 const TextOverlay = styled.div`

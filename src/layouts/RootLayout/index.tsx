@@ -1,7 +1,6 @@
 import React, { ReactNode, useEffect } from "react"
 import { ThemeProvider } from "./ThemeProvider"
 import useScheme from "src/hooks/useScheme"
-import Header from "./Header"
 import styled from "@emotion/styled"
 import Scripts from "src/layouts/RootLayout/Scripts"
 import useGtagEffect from "./useGtagEffect"
@@ -55,8 +54,6 @@ const RootLayout = ({ children }: Props) => {
     <ThemeProvider scheme={scheme}>
       <Scripts />
       {/* // TODO: replace react query */}
-      {/* {metaConfig.type !== "Paper" && <Header />} */}
-      <Header fullWidth={false} />
       <StyledMain>{children}</StyledMain>
     </ThemeProvider>
   )

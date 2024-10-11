@@ -68,8 +68,8 @@ export default PostHeader
 
 const StyledWrapper = styled.div`
   .title {
-    font-size: 1.875rem; //标题字体大小
-    line-height: 2.25rem;
+    font-size: 2rem; //标题字体大小
+    line-height: 1.45rem;
     font-weight: 700;
   }
   nav {

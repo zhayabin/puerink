@@ -22,12 +22,12 @@ const Tag: React.FC<Props> = ({ children }) => {
 export default Tag
 
 const StyledWrapper = styled.div`
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
-  padding-left: 0.8rem;
-  padding-right: 0.8rem;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  padding-left: 0rem;
+  padding-right: 0rem;
   border-radius: 0px;
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   line-height: 1rem;
   font-weight: 500;
   color: ${({ theme }) => theme.colors.gray10};

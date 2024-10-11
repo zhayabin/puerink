@@ -14,7 +14,7 @@ const ThemeToggle: React.FC<Props> = () => {
 
   return (
     <StyledWrapper onClick={handleClick}>
-      <Emoji>{scheme === "light" ? "◐" : "◑"}</Emoji>
+      <Emoji>{scheme === "light" ? "暗色" : "亮色"}</Emoji>
     </StyledWrapper>
   )
 }
@@ -23,6 +23,7 @@ export default ThemeToggle
 
 const StyledWrapper = styled.div`
   cursor: pointer;
-  font-size: 1.5rem; /* 这里设置字体大小 */
-  line-height: 0rem; /* 增加行高，使文字相对下移 */
+  font-size: 0.85rem; /* 这里设置字体大小 */
+  display: flex;
+  justify-content: flex-end; /* 内容靠右 */
 `
