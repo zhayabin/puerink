@@ -26,7 +26,7 @@ const StyledWrapper = styled.div`
 
   > .mid {
     padding: 0.2rem 0; // 添加适当的内边距以使输入框高度更好
-    font-size: 0.875rem; // 设置字体大小
+    font-size: 1rem; // 设置字体大小
     padding-left: 0rem;
     padding-right: 0.35rem;
     line-height: 1.5; // 设置行高以确保文字垂直居中
@@ -34,8 +34,7 @@ const StyledWrapper = styled.div`
     background-color: transparent; // 背景颜色设置为透明
     width: 100%; // 宽度占满父元素
     box-shadow: none; // 去除阴影
-    outline: none; // 去除聚焦时的轮廓
-    touch-action: manipulation; /* 禁用缩放 */
+    outline: none; // 去除聚焦时的
 
     // 下面是确保占位符文本样式的控制
     &::placeholder {
