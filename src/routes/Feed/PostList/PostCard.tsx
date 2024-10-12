@@ -71,10 +71,6 @@ const StyledWrapper = styled(Link)`
     position: relative; // 相对定位
     margin-bottom: 0rem; // 底部间距
 
-    @media (min-width: 768px) {
-      margin-bottom: 1rem; // 在大屏幕上增加底部间距
-    }
-
     > .thumbnail {
       position: relative; // 相对定位缩略图
       width: 100%; // 100% 宽度
@@ -126,6 +122,7 @@ const StyledWrapper = styled(Link)`
         p {
           line-height: 1.75rem; // 行高
           color: ${({ theme }) => theme.colors.gray11}; // 字体颜色
+          text-align: justify; /* 对齐段落两端 */
         }
       }
       > .tags {

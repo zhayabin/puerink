@@ -29,25 +29,12 @@ const PostHeader: React.FC<Props> = ({ data }) => {
                   />
                   <div className="">{data.author[0].name}</div>
                 </div>
-                <div className="hr"></div>
+
               </>
             )}
-            <div className="date">
-              {formatDate(
-                data?.date?.start_date || data.createdTime,
-                CONFIG.lang
-              )}
-            </div>
+
           </div>
-          <div className="mid">
-            {data.tags && (
-              <div className="tags">
-                {data.tags.map((tag: string) => (
-                  <Tag key={tag}>{tag}</Tag>
-                ))}
-              </div>
-            )}
-          </div>
+
           {data.thumbnail && (
             <div className="thumbnail">
               <Image
@@ -68,12 +55,12 @@ export default PostHeader
 
 const StyledWrapper = styled.div`
   .title {
-    font-size: 2rem; //标题字体大小
-    line-height: 1.45rem;
+    font-size: 1.5rem; //标题字体大小
+    line-height: 2.45rem;
     font-weight: 700;
   }
   nav {
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     color: ${({ theme }) => theme.colors.gray11};
     > .top {
       display: flex;
@@ -85,33 +72,8 @@ const StyledWrapper = styled.div`
         gap: 0.5rem;
         align-items: center;
       }
-      .hr {
-        margin-top: 0.25rem;
-        margin-bottom: 0.25rem;
-        align-self: stretch;
-        width: 1px;
-        background-color: ${({ theme }) => theme.colors.gray10};
-      }
-      .date {
-        margin-right: 0.5rem;
+    }
 
-        @media (min-width: 768px) {
-          margin-left: 0;
-        }
-      }
-    }
-    > .mid {
-      display: flex;
-      margin-bottom: 1rem;
-      align-items: center;
-      .tags {
-        display: flex;
-        overflow-x: auto;
-        flex-wrap: nowrap;
-        gap: 0.5rem;
-        max-width: 100%;
-      }
-    }
     .thumbnail {
       overflow: hidden;
       position: relative;

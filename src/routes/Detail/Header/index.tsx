@@ -1,9 +1,7 @@
-import { useState } from "react";
+
 import Contact from "./Contact";
 import Logo from "./Logo";
 import styled from "@emotion/styled";
-import PinnedPosts from "src/routes/Feed/PostList/PinnedPosts";
-import SearchInput from "./SearchInput";
 
 type Props = {
   fullWidth: boolean;
@@ -21,7 +19,6 @@ const Header: React.FC<Props> = ({ fullWidth, q, setQ }) => {
         </div>
         <div className="search-contact">
           <div className="search-input">
-            <SearchInput value={q} onChange={(e) => setQ(e.target.value)} />
           </div>
           <div className="contact">
             <Contact />

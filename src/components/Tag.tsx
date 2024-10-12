@@ -27,10 +27,12 @@ const StyledWrapper = styled.div`
   padding-left: 0rem;
   padding-right: 0rem;
   border-radius: 0px;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   line-height: 1rem;
   font-weight: 500;
-  color: ${({ theme }) => theme.colors.gray10};
+  color: ${({ theme }) => theme.colors.gray9};
   background-color: ;
   cursor: pointer;
+  overflow: hidden; /* 隐藏页面滚动 */
+  }
 `

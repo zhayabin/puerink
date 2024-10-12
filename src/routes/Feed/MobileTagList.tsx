@@ -68,7 +68,7 @@ const StyledWrapper = styled.div`
     .list {
       display: flex;
       flex-wrap: wrap; /* 使标签换行 */
-      margin-bottom: 0rem;
+      margin-bottom: 3rem;
       gap: 1rem; /* 调整标签之间的间距 */
 
       scrollbar-width: none;
@@ -93,7 +93,7 @@ const StyledWrapper = styled.div`
 
         :hover {
         &[data-active="true"] {
-          color: ${({ theme }) => theme.colors.gray12};
+          color: #2997ff;
           background-color: ;
         }
       }

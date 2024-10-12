@@ -4,6 +4,7 @@ import Link from "next/link"
 import { ExtendedRecordMap } from "notion-types"
 import useScheme from "src/hooks/useScheme"
 
+
 // core styles shared by all of react-notion-x (required)
 import "react-notion-x/src/styles.css"
 
@@ -91,9 +92,13 @@ const StyledWrapper = styled.div`
   }
   .notion-page {
     padding: 0;
+    width: ;
+    font-family: 'Pixel', 'Source Han Sans', Arial, sans-serif; // 使用特定字体
+    font-size: inherit !important; // 确保字体大小继承
   }
 
   .notion-list {
     width: 100%;
+
   }
 `

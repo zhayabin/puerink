@@ -6,6 +6,9 @@ import Category from "src/components/Category"
 import styled from "@emotion/styled"
 import NotionRenderer from "../components/NotionRenderer"
 import usePostQuery from "src/hooks/usePostQuery"
+import Tag from "src/components/Tag"
+import { CONFIG } from "site.config"
+import { formatDate } from "src/libs/utils"
 
 type Props = {}
 
@@ -30,6 +33,23 @@ const PostDetail: React.FC<Props> = () => {
         <div>
           <NotionRenderer recordMap={data.recordMap} />
         </div>
+        <div className="mid">
+            {data.tags && (
+              <div className="tags">
+                {data.tags.map((tag: string) => (
+                  <Tag key={tag}>{tag}</Tag>
+                ))}
+              </div>
+            )}
+         </div>
+
+         <div className="date">
+              {formatDate(
+                data?.date?.start_date || data.createdTime,
+                CONFIG.lang
+              )}
+            </div>
+
         {data.type[0] === "Post" && (
           <>
             <Footer />
@@ -44,17 +64,36 @@ const PostDetail: React.FC<Props> = () => {
 export default PostDetail
 
 const StyledWrapper = styled.div`
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  padding-top: 3.3rem;
+  padding-left: 0rem;
+  padding-right: 0rem;
+  padding-top: 0rem; 整个阅读页面的上下左右
   padding-bottom: 3rem;
-  border-radius: 1.5rem;
   background-color: ;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0),
-    0 2px 4px -1px rgba(0, 0, 0, 0); //文章页面阴影
   margin: 0 auto;
   > article {
     margin: 0 auto;
-    max-width: 48rem; //显示内容宽度
+    max-width: 45rem; //显示内容宽度
+
+    > .mid {
+      display: flex;
+      margin-bottom: 0.3rem;
+      margin-top: 2rem;
+      align-items: center;
+      .tags {
+        display: flex;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        gap: 0.5rem;
+        max-width: 100%;
+      }
+    }
+
+    > .date {
+      font-size: 0.8rem;
+      color: ${({ theme }) => theme.colors.gray9};
+        @media (min-width: 768px) {
+          margin-left: 0;
+        }
+    }
   }
 `

@@ -53,8 +53,8 @@ const Photo = ({
       onDragStart={(e) => e.preventDefault()} // 禁用拖动
       style={{
         position: 'relative',
-        width: '120px',
-        height: '150px', // 控制图片框的大小
+        width: '200px',
+        height: '280px', // 控制图片框的大小
         overflow: 'hidden',
         clipPath: 'inset(0 round 12px)', // 使用 clip-path 实现圆角
         backgroundColor: '#f0f0f0',
@@ -65,7 +65,7 @@ const Photo = ({
       <Image
         src={img}
         alt={alt}
-        sizes="120px" // 根据屏幕宽度指定不同的图片宽度
+        sizes="240px" // 根据屏幕宽度指定不同的图片宽度
         fill
         style={{
           objectFit: 'cover',
@@ -176,10 +176,11 @@ export const Photos = () => {
 // 样式部分
 const ScrollableContainer = styled.div`
   display: flex;
-  gap: 16px; // 图片间距
+  gap: 25px; // 图片间距
   overflow-x: auto; // 允许水平滚动
-  padding: 16px; // 整体容器的内边距
+  padding: 30px; // 整体容器的内边距
   padding-bottom: 4rem;
+  padding-top: 4rem;
   white-space: nowrap; // 禁止图片换行，确保所有图片在同一行
   cursor: grab; // 当鼠标在容器上时显示抓手光标
   user-select: none; /* 禁止选中 */

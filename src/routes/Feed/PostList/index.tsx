@@ -9,14 +9,24 @@ type Props = {
   q: string;
 };
 
+const POSTS_PER_PAGE = 6; // 每页显示6篇文章
+
 const PostList: React.FC<Props> = ({ q }) => {
   const router = useRouter();
   const data = usePostsQuery();
   const [filteredPosts, setFilteredPosts] = useState(data);
+  const [currentPage, setCurrentPage] = useState(1); // 当前页码
 
   const currentTag = `${router.query.tag || ``}` || undefined;
   const currentCategory = `${router.query.category || ``}` || DEFAULT_CATEGORY;
   const currentOrder = `${router.query.order || ``}` || "desc";
+
+  // 根据页码和每页文章数量进行分页
+  const totalPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE);
+  const paginatedPosts = filteredPosts.slice(
+    (currentPage - 1) * POSTS_PER_PAGE,
+    currentPage * POSTS_PER_PAGE
+  );
 
   useEffect(() => {
     setFilteredPosts(() => {
@@ -50,17 +60,46 @@ const PostList: React.FC<Props> = ({ q }) => {
 
       return newFilteredPosts;
     });
+    // 每次过滤或排序后重置页码为第一页
+    setCurrentPage(1);
   }, [q, currentTag, currentCategory, currentOrder, setFilteredPosts, data]);
 
   return (
-    <StyledPostList>
-      {!filteredPosts.length && (
-        <p className="text-gray-500 dark:text-gray-300">没找到！</p>
-      )}
-      {filteredPosts.map((post) => (
-        <PostCard key={post.id} data={post} />
-      ))}
-    </StyledPostList>
+    <>
+      <StyledPostList>
+        {!paginatedPosts.length && (
+          <p className="text-gray-500 dark:text-gray-300">没找到！</p>
+        )}
+        {paginatedPosts.map((post) => (
+          <PostCard key={post.id} data={post} />
+        ))}
+      </StyledPostList>
+
+      {/* 分页按钮 */}
+      <PaginationContainer>
+        <button
+          onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+          disabled={currentPage === 1}
+        >
+          上一页
+        </button>
+        {Array.from({ length: totalPages }, (_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentPage(index + 1)}
+            className={currentPage === index + 1 ? "active" : ""}
+          >
+            {index + 1}
+          </button>
+        ))}
+        <button
+          onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+          disabled={currentPage === totalPages}
+        >
+          下一页
+        </button>
+      </PaginationContainer>
+    </>
   );
 };
 
@@ -73,7 +112,38 @@ const StyledPostList = styled.div`
   max-height: 0%; // 保持比例
 
   @media (max-width: 768px) {
-    grid-template-columns: 1fr; // 小于1024px时变为单列
+    grid-template-columns: 1fr; // 小于768px时变为单列
+  }
+`;
+
+const PaginationContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 4rem;
+  gap: 0.5rem;
+
+  button {
+    padding: 0.2rem 0.7rem;
+    background-color: ${({ theme }) => theme.colors.gray1}; // 按钮背景色
+    border: none;
+    border-radius: 0px; // 边角圆度
+    cursor: pointer;
+    color: ${({ theme }) => theme.colors.gray10}; // 默认颜色
+
+    font-size: 0.875rem; // 设置文字大小，可以根据需要调整
+
+    &.active {
+      color: #2997ff; // 选中颜色
+    }
+
+    &:hover {
+      text-decoration: underline; // 鼠标悬停下划线
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.2; // 禁用时的透明度
+    }
   }
 `;
 

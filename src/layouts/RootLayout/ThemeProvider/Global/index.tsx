@@ -1,21 +1,26 @@
-import { Global as _Global, css, useTheme } from "@emotion/react"
-import { ThemeProvider as _ThemeProvider } from "@emotion/react"
+import { Global as _Global, css, useTheme } from "@emotion/react";
+import { ThemeProvider as _ThemeProvider } from "@emotion/react";
 
 export const Global = () => {
-  const theme = useTheme()
+  const theme = useTheme();
 
   return (
     <_Global
       styles={css`
-        @import url('https://fonts.googleapis.com/css2?family=Source+Han+Sans:wght@400;500;600;700&display=swap');
+        @font-face {
+          font-family: 'Pixel';
+          src: url('/pixel.woff2') format('woff2'); // 去掉public前缀
+          font-weight: normal;
+          font-style: normal;
+        }
 
         body {
           margin: 0;
           padding: 0;
           color: ${theme.colors.gray12};
           background-color: ${theme.colors.gray1};
-          font-family: 'Source Han Sans', Arial, sans-serif; // 替换为思源字体
-          letter-spacing: 0.07em; // 调整字间距
+          font-family: 'Pixel', Arial, sans-serif; // 使用本地Pixel字体
+          letter-spacing: 0em; // 调整字间距
         }
 
         * {
@@ -74,5 +79,5 @@ export const Global = () => {
         }
       `}
     />
-  )
-}
+  );
+};
