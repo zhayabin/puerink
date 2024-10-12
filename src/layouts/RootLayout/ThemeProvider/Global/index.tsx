@@ -13,7 +13,7 @@ export const Global = () => {
           margin: 0;
           padding: 0;
           color: ${theme.colors.gray12};
-          background-color: ${theme.colors.blackA1};
+          background-color: ${theme.colors.gray1};
           font-family: 'Source Han Sans', Arial, sans-serif; // 替换为思源字体
           letter-spacing: 0.07em; // 调整字间距
         }
