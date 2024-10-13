@@ -47,10 +47,13 @@ const Utterances: React.FC<Props> = ({ issueTerm }) => {
 
     window.addEventListener("message", handleMessage);
 
+    // 使用局部变量来存储 commentsRef.current 的值
+    const currentRef = commentsRef.current;
+
     return () => {
       window.removeEventListener("message", handleMessage);
-      if (commentsRef.current) {
-        commentsRef.current.innerHTML = "";
+      if (currentRef) {
+        currentRef.innerHTML = "";
       }
     };
   }, [scheme, router, issueTerm]);
