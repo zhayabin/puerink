@@ -45,7 +45,7 @@ const StyledWrapper = styled.div`
     right: 0;
     height: 6rem; /* 限制背景的高度，与 Header 的高度相同 */
     background-color: rgba(255, 255, 255, 0); /* 半透明背景色 */
-    backdrop-filter: blur(10px); /* 设置模糊效果 */
+    backdrop-filter: blur(20px); /* 设置模糊效果 */
     z-index: -1; /* 确保背景在内容后面 */
   }
 

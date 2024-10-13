@@ -46,11 +46,11 @@ const GiscusComments: React.FC<Props> = ({ id, slug, title }) => {
           repoId={CONFIG.giscus.config.repoId}
           category={CONFIG.giscus.config.category}
           categoryId={CONFIG.giscus.config.categoryId}
-          reactionsEnabled="1"
+          reactionsEnabled="0"
           mapping="pathname"
           emitMetadata="0"
-          inputPosition="bottom"
-          theme={scheme}
+          inputPosition="top"
+          theme= {scheme}
           lang="zh-CN"
           loading="lazy"
         />
@@ -62,4 +62,9 @@ export default GiscusComments
 
 const StyledWrapper = styled.div`
   margin-top: 2.5rem;
+
+  .giscus {
+    font-family: 'Pixel', 'Source Han Sans', Arial, sans-serif; // 使用特定字体
+  }
+
 `

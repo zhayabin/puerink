@@ -58,7 +58,7 @@ const StyledWrapper = styled.div`
   }
 
   a:hover, a:active {
-    color: #2997ff; /* 悬停时的文字颜色 */
+    color: #20973A; /* 悬停时的文字颜色 */
     text-decoration: underline; /* 添加下划线 */
     text-underline-offset: 3px; /* 设置下划线与文字的距离 */
   }

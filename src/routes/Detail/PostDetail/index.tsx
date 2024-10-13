@@ -1,6 +1,6 @@
 import React from "react"
 import PostHeader from "./PostHeader"
-import Footer from "./PostFooter"
+import PostFooter from "./PostFooter"
 import CommentBox from "./CommentBox"
 import Category from "src/components/Category"
 import styled from "@emotion/styled"
@@ -9,6 +9,8 @@ import usePostQuery from "src/hooks/usePostQuery"
 import Tag from "src/components/Tag"
 import { CONFIG } from "site.config"
 import { formatDate } from "src/libs/utils"
+import Footer from "src/routes/Feed/Footer"
+import ThemeToggle from "src/routes/Feed/ThemeToggle"
 
 type Props = {}
 
@@ -52,10 +54,17 @@ const PostDetail: React.FC<Props> = () => {
 
         {data.type[0] === "Post" && (
           <>
-            <Footer />
+            <PostFooter />
+            <div className="footer">
+             <Footer />
+             <ThemeToggle />
+            </div>
             <CommentBox data={data} />
+
           </>
         )}
+
+
       </article>
     </StyledWrapper>
   )
@@ -73,6 +82,15 @@ const StyledWrapper = styled.div`
   > article {
     margin: 0 auto;
     max-width: 45rem; //显示内容宽度
+
+    > .footer {
+      display: grid;
+      grid-column: span 12 / span 12;
+      grid-template-columns: 6fr 1fr; //调整左右的比例
+      padding-bottom: 1rem;
+      padding-top: 3rem;
+      margin-top: auto;
+    }
 
     > .mid {
       display: flex;

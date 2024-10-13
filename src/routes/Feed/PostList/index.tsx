@@ -133,7 +133,7 @@ const PaginationContainer = styled.div`
     font-size: 0.875rem; // 设置文字大小，可以根据需要调整
 
     &.active {
-      color: #2997ff; // 选中颜色
+      color: #20973A; // 选中颜色
     }
 
     &:hover {

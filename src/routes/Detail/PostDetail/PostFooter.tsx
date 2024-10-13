@@ -10,7 +10,7 @@ const Footer: React.FC<Props> = () => {
     <StyledWrapper>
       <a onClick={() => router.push("/")}> </a>
       <a onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-       回到顶部 ▲
+      ▲ 回到顶部
       </a>
     </StyledWrapper>
   )
@@ -28,7 +28,9 @@ const StyledWrapper = styled.div`
     cursor: pointer;
 
     :hover {
-      color: ${({ theme }) => theme.colors.gray12};
+      color: #20973A;
+      text-decoration: underline; /* 添加下划线 */
+      text-underline-offset: 3px; /* 设置下划线与文字的距离 */
     }
   }
 `

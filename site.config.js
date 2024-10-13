@@ -70,16 +70,14 @@ const CONFIG = {
       categoryId: "DIC_kwDOM1ZZJM4Cir-s",   // 替换为分类的 categoryId
       mapping: "pathname",             // 评论关联方式，比如 'pathname', 'url', 'title' 等
       strict: "0",
-      reactionsEnabled: "1",           // 是否启用 reactions（点赞等表情）
       emitMetadata: "0",               // 是否启用元数据发送
-      inputPosition: "bottom",         // 评论框的位置（top 或 bottom）
       theme: "preferred_color_scheme", // 设置评论的主题（light 或 dark）
       lang: "zh-CN",                   // 设置语言
       crossorigin: "anonymous",        // 设置跨域请求
     },
   },
   isProd: process.env.VERCEL_ENV === "production", // distinguish between development and production environment (ref: https://vercel.com/docs/environment-variables#system-environment-variables)
-  revalidateTime: 21600 * 7, // revalidate time for [slug], index
+  revalidateTime: 21600, // revalidate time for [slug], index
 }
 
 module.exports = { CONFIG }

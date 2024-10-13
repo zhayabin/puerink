@@ -65,11 +65,11 @@ const StyledWrapper = styled.div`
   justify-content: space-between; // 确保内容和footer之间有空间
 
  > .footer {
-      display: grid;
-      grid-column: span 12 / span 12;
-      grid-template-columns: 6fr 1fr; //调整左右的比例
-      padding-bottom: 2rem;
-      margin-top: auto;
-    }
+    display: grid;
+    grid-column: span 12 / span 12;
+    grid-template-columns: 6fr 1fr; //调整左右的比例
+    padding-bottom: 2rem;
+    margin-top: auto;
   }
+
 `

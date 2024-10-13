@@ -90,11 +90,16 @@ const StyledWrapper = styled.div`
         color: ${({ theme }) => theme.colors.gray10};
         white-space: nowrap; /* 防止文字换行 */
         flex-shrink: 0;
+        text-decoration: none; /* 默认无下划线 */
 
-        :hover {
+        &:hover {
+          text-decoration: underline; /* 悬停时显示下划线 */
+          color: #20973A; /* 悬停时文字颜色 */
+        }
+
         &[data-active="true"] {
-          color: #2997ff;
-          background-color: ;
+          text-decoration: underline; /* 激活状态下显示下划线 */
+          color: #20973A; /* 激活状态下的文字颜色 */
         }
       }
     }
