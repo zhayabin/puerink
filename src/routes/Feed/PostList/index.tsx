@@ -106,7 +106,7 @@ const PostList: React.FC<Props> = ({ q }) => {
 const StyledPostList = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr); // 两列布局
-  grid-column-gap: 1.5rem; // 设置左右间距
+  grid-column-gap: 4rem; // 设置左右间距
   grid-row-gap: 4rem; // 设置上下间距
   max-width: 100%; // 防止被拉长
   max-height: 0%; // 保持比例

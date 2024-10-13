@@ -9,6 +9,8 @@ import { queryKey } from "src/constants/queryKey"
 import { GetStaticProps } from "next"
 import { dehydrate } from "@tanstack/react-query"
 import { filterPosts } from "src/libs/utils/notion"
+import Footer from "src/routes/Feed/Footer"
+import ThemeToggle from "src/routes/Feed/ThemeToggle"
 import styled from "@emotion/styled"; // 引入 styled 用于创建新的容器
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -39,15 +41,35 @@ const FeedPage: NextPageWithLayout = () => {
   }
 
   return (
-    <>
+    <StyledWrapper>
 
       <MetaConfig {...meta} />
       <Feed />
+      <div className="footer">
+        <Footer />
+        <ThemeToggle />
+      </div>
       <FullWidthContainer>
-        <Photos /> {/* Photos 模块在全宽容器内 */}
+
       </FullWidthContainer>
-    </>
+    </StyledWrapper>
   )
 }
 
 export default FeedPage
+
+const StyledWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; // 让整个页面高度至少为视口高度
+  justify-content: space-between; // 确保内容和footer之间有空间
+
+ > .footer {
+      display: grid;
+      grid-column: span 12 / span 12;
+      grid-template-columns: 6fr 1fr; //调整左右的比例
+      padding-bottom: 2rem;
+      margin-top: auto;
+    }
+  }
+`

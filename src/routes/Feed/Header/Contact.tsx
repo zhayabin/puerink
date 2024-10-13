@@ -18,7 +18,7 @@ const ContactCard: React.FC = () => {
             target="_blank"
             css={{ overflow: "hidden" }}
           >
-            <div className="name">邮箱</div>
+            <div className="name"> </div>
           </a>
         )}
         {CONFIG.profile.linkedin && (

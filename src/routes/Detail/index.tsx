@@ -30,6 +30,7 @@ export default Detail
 
 const StyledWrapper = styled.div`
   padding: 0rem 0;
+  padding-bottom: 2rem;
 
   > .guding {
     position: sticky;

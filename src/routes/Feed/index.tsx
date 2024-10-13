@@ -1,7 +1,6 @@
 import { useState } from "react"
-import Footer from "./Footer"
+
 import Header from "./Header"
-import ThemeToggle from "./ThemeToggle"
 import styled from "@emotion/styled"
 import MobileGallery from "./MobileGallery"
 import MobileTagList from "./MobileTagList"
@@ -40,10 +39,7 @@ const Feed: React.FC<Props> = () => {
         <PostList q={q} />
 
       </div>
-      <div className="footer">
-          <Footer />
-          <ThemeToggle />
-        </div>
+
     </StyledWrapper>
   )
 }
@@ -53,6 +49,8 @@ export default Feed
 const StyledWrapper = styled.div`
   grid-template-columns: repeat(12, minmax(0, 1fr));
   padding: 0rem 0;  //顶部标题距离内容的距离
+  padding-left: 0rem;
+  padding-right: 0rem;
   display: grid;
   gap: 1.5rem;
   position: relative; // 添加相对定位
@@ -60,11 +58,15 @@ const StyledWrapper = styled.div`
   @media (max-width: 768px) {
     display: block;
     padding: 0rem 0; //顶部标题距离内容的距离
+    padding-left: 0rem;
+    padding-right: 0rem;
   }
 
   @media (max-width: 1024px) {
     display: block;
     padding: 0rem 0; //顶部标题距离内容的距离
+    padding-left: 0rem;
+    padding-right: 0rem;
   }
 
   > .guding {
@@ -119,14 +121,6 @@ const StyledWrapper = styled.div`
     }
   }
 
-  > .footer {
-      display: grid;
-      grid-column: span 12 / span 12;
-      grid-template-columns: 6fr 1fr; //调整左右的比例
-      padding-bottom: 0rem;
 
-
-    }
-  }
 
 `

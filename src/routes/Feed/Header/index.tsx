@@ -65,7 +65,7 @@ const StyledWrapper = styled.div`
     }
 
     .search-contact {
-      grid-column: 5 / span 8; /* SearchInput 和 Contact 占 8 列 */
+      grid-column: 7 / span 8; /* SearchInput 和 Contact 占 8 列 */
       display: flex;
       justify-content: flex-end; /* 靠右对齐 */
       align-items: center; /* 垂直居中 */
@@ -82,7 +82,7 @@ const StyledWrapper = styled.div`
         display: flex;
         justify-content: flex-end; /* Contact 靠右对齐 */
         align-items: center; /* 垂直居中 */
-        margin-left: 1rem; /* 可选：添加间距 */
+        margin-left: 0.4rem; /* 可选：添加间距 */
       }
     }
 
