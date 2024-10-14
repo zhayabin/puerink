@@ -31,7 +31,8 @@ const PostCard: React.FC<Props> = ({ data }) => {
               src={data.thumbnail} // 图片源
               fill // 使图片充满容器
               alt={data.title} // 图片替代文本
-              css={{ objectFit: "cover" }} // 确保图片按比例裁剪
+              css={{ objectFit: "cover", borderRadius: "3px" }} // 确保图片按比例裁剪
+
             />
           </div>
         )}
@@ -39,6 +40,11 @@ const PostCard: React.FC<Props> = ({ data }) => {
           <header className="top">
             <h2>{data.title}</h2> {/* 显示帖子标题 */}
           </header>
+
+          <div className="summary">
+            <p>{data.summary}</p> {/* 显示帖子摘要 */}
+          </div>
+
           <div className="date">
             <div className="content">
               {formatDate( // 格式化日期并显示
@@ -47,15 +53,14 @@ const PostCard: React.FC<Props> = ({ data }) => {
               )}
             </div>
           </div>
-          <div className="summary">
-            <p>{data.summary}</p> {/* 显示帖子摘要 */}
-          </div>
+
           <div className="tags">
             {data.tags && // 渲染标签
               data.tags.map((tag: string, idx: number) => (
                 <Tag key={idx}>{tag}</Tag> // 使用 Tag 组件显示每个标签
               ))}
           </div>
+
         </div>
       </article>
     </StyledWrapper>
@@ -71,21 +76,22 @@ const StyledWrapper = styled(Link)`
     position: relative; // 相对定位
     margin-bottom: 0rem; // 底部间距
 
+
     > .thumbnail {
       position: relative; // 相对定位缩略图
       width: 100%; // 100% 宽度
       background-color: ${({ theme }) => theme.colors.gray2}; // 背景颜色
-      padding-bottom: 33%; // 调整手机显示图片高度
+      padding-bottom: 120%; // 调整手机显示图片高度
 
       @media (min-width: 1024px) {
-        padding-bottom: 33%; // 调整 PC 图显示高度
+        padding-bottom: 120%; // 调整 PC 图显示高度
       }
     }
     > .content {
       padding: 0rem; // 标题、文字内边距
 
       &[data-category="false"] {
-        padding-top: 0.85rem; // 标题与图片边距
+        padding-top: 1rem; // 标题与图片边距
       }
       > .top {
         display: flex; // 使用 flexbox
@@ -97,15 +103,15 @@ const StyledWrapper = styled(Link)`
           align-items: baseline; // 基线对齐
         }
         h2 {
-          margin-bottom: 1rem; // 底部间距
-          font-size: 1.45rem; // 字体大小
+          margin-bottom: 0rem; // 底部间距
+          font-size: 1.2rem; // 字体大小
           line-height: 1.75rem; // 行高
           font-weight: 600; // 字体加粗
 
           cursor: pointer; // 鼠标指针变为手型
 
           @media (min-width: 768px) {
-            font-size: 1.45rem; // 在大屏幕上增加字体大小
+            font-size: 1.2rem; // 在大屏幕上增加字体大小
             line-height: 1.75rem; // 行高
           }
         }
@@ -113,14 +119,14 @@ const StyledWrapper = styled(Link)`
       > .date {
         margin-bottom: 0rem; // 底部间距
         .content {
-          font-size: 1rem; // 字体大小
+          font-size: 0.8rem; // 字体大小
           color: ${({ theme }) => theme.colors.gray10}; // 字体颜色
         }
       }
       > .summary {
-        font-size: 1rem; // 字体大小
+        font-size: 0.875rem; // 字体大小
         p {
-          line-height: 1.75rem; // 行高
+          line-height: 1.5rem; // 行高
           color: ${({ theme }) => theme.colors.gray11}; // 字体颜色
           text-align: justify; /* 对齐段落两端 */
         }

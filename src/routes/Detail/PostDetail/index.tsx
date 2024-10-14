@@ -21,6 +21,9 @@ const PostDetail: React.FC<Props> = () => {
 
   const category = (data.category && data.category?.[0]) || undefined
 
+  // 检查是否包含 '#评论' 标签
+  const hasCommentTag = data.tags?.includes("#评论")
+
   return (
     <StyledWrapper>
       <article>
@@ -36,35 +39,33 @@ const PostDetail: React.FC<Props> = () => {
           <NotionRenderer recordMap={data.recordMap} />
         </div>
         <div className="mid">
-            {data.tags && (
-              <div className="tags">
-                {data.tags.map((tag: string) => (
-                  <Tag key={tag}>{tag}</Tag>
-                ))}
-              </div>
-            )}
-         </div>
-
-         <div className="date">
-              {formatDate(
-                data?.date?.start_date || data.createdTime,
-                CONFIG.lang
-              )}
+          {data.tags && (
+            <div className="tags">
+              {data.tags.map((tag: string) => (
+                <Tag key={tag}>{tag}</Tag>
+              ))}
             </div>
+          )}
+        </div>
+
+        <div className="date">
+          {formatDate(
+            data?.date?.start_date || data.createdTime,
+            CONFIG.lang
+          )}
+        </div>
 
         {data.type[0] === "Post" && (
           <>
             <PostFooter />
             <div className="footer">
-             <Footer />
-             <ThemeToggle />
+              <Footer />
+              <ThemeToggle />
             </div>
-            <CommentBox data={data} />
-
+            {/* 仅在包含 '#评论' 标签时渲染 CommentBox */}
+            {hasCommentTag && <CommentBox data={data} />}
           </>
         )}
-
-
       </article>
     </StyledWrapper>
   )
@@ -75,18 +76,18 @@ export default PostDetail
 const StyledWrapper = styled.div`
   padding-left: 0rem;
   padding-right: 0rem;
-  padding-top: 0rem; 整个阅读页面的上下左右
+  padding-top: 0rem; // 整个阅读页面的上下左右
   padding-bottom: 3rem;
   background-color: ;
   margin: 0 auto;
   > article {
     margin: 0 auto;
-    max-width: 45rem; //显示内容宽度
+    max-width: 45rem; // 显示内容宽度
 
     > .footer {
       display: grid;
       grid-column: span 12 / span 12;
-      grid-template-columns: 6fr 1fr; //调整左右的比例
+      grid-template-columns: 6fr 1fr; // 调整左右的比例
       padding-bottom: 1rem;
       padding-top: 3rem;
       margin-top: auto;
@@ -109,9 +110,9 @@ const StyledWrapper = styled.div`
     > .date {
       font-size: 0.8rem;
       color: ${({ theme }) => theme.colors.gray9};
-        @media (min-width: 768px) {
-          margin-left: 0;
-        }
+      @media (min-width: 768px) {
+        margin-left: 0;
+      }
     }
   }
 `

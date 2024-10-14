@@ -72,7 +72,7 @@ const StyledWrapper = styled.div`
       overflow: hidden;
       position: relative;
       margin-bottom: 0rem; //标题距离图片距离
-      border-radius: 0rem; //图片圆角
+      border-radius: 0.2rem; //图片圆角
       width: 100%;
       background-color: ${({ theme }) => theme.colors.gray4};
       padding-bottom: 33%; //调整进入帖子的图谱高度手机

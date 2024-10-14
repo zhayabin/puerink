@@ -3,29 +3,44 @@ import React, { useEffect, useState } from "react";
 import PostCard from "src/routes/Feed/PostList/PostCard";
 import { DEFAULT_CATEGORY } from "src/constants";
 import usePostsQuery from "src/hooks/usePostsQuery";
-import styled from "@emotion/styled"; // 确保导入 styled
+import styled from "@emotion/styled";
 
 type Props = {
   q: string;
 };
 
-const POSTS_PER_PAGE = 6; // 每页显示6篇文章
-
 const PostList: React.FC<Props> = ({ q }) => {
   const router = useRouter();
   const data = usePostsQuery();
   const [filteredPosts, setFilteredPosts] = useState(data);
-  const [currentPage, setCurrentPage] = useState(1); // 当前页码
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(6); // 默认6篇
 
   const currentTag = `${router.query.tag || ``}` || undefined;
   const currentCategory = `${router.query.category || ``}` || DEFAULT_CATEGORY;
   const currentOrder = `${router.query.order || ``}` || "desc";
 
+  // 根据屏幕大小动态调整每页文章数量
+  useEffect(() => {
+    const updatePostsPerPage = () => {
+      if (window.innerWidth > 1024) {
+        setPostsPerPage(8); // 大于1024px时显示8篇
+      } else {
+        setPostsPerPage(6); // 默认显示6篇
+      }
+    };
+
+    updatePostsPerPage(); // 初始化时执行一次
+    window.addEventListener("resize", updatePostsPerPage);
+
+    return () => window.removeEventListener("resize", updatePostsPerPage);
+  }, []);
+
   // 根据页码和每页文章数量进行分页
-  const totalPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE);
+  const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
   const paginatedPosts = filteredPosts.slice(
-    (currentPage - 1) * POSTS_PER_PAGE,
-    currentPage * POSTS_PER_PAGE
+    (currentPage - 1) * postsPerPage,
+    currentPage * postsPerPage
   );
 
   useEffect(() => {
@@ -49,7 +64,8 @@ const PostList: React.FC<Props> = ({ q }) => {
       // 分类过滤
       if (currentCategory !== DEFAULT_CATEGORY) {
         newFilteredPosts = newFilteredPosts.filter(
-          (post) => post && post.category && post.category.includes(currentCategory)
+          (post) =>
+            post && post.category && post.category.includes(currentCategory)
         );
       }
 
@@ -105,14 +121,21 @@ const PostList: React.FC<Props> = ({ q }) => {
 
 const StyledPostList = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 1fr); // 两列布局
-  grid-column-gap: 4rem; // 设置左右间距
-  grid-row-gap: 4rem; // 设置上下间距
+  grid-template-columns: repeat(4, 1fr); // 两列布局
+  grid-column-gap: 1.2rem; // 设置左右间距
+  grid-row-gap: 2rem; // 设置上下间距
   max-width: 100%; // 防止被拉长
   max-height: 0%; // 保持比例
 
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr); // 小于1024px时为三列
+    grid-column-gap: 1.2rem; // 设置左右间距
+  }
+
   @media (max-width: 768px) {
-    grid-template-columns: 1fr; // 小于768px时变为单列
+    grid-template-columns: repeat(2, 1fr); // 小于768px时为两列
+    grid-column-gap: 1rem; // 设置左右间距
   }
 `;
 
@@ -124,7 +147,7 @@ const PaginationContainer = styled.div`
 
   button {
     padding: 0.2rem 0.7rem;
-    background-color: ${({ theme }) => theme.colors.gray1}; // 按钮背景色
+    background-color: ; // 按钮背景色
     border: none;
     border-radius: 0px; // 边角圆度
     cursor: pointer;

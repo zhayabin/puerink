@@ -2,13 +2,13 @@ import { useState } from "react";
 import Contact from "./Contact";
 import Logo from "./Logo";
 import styled from "@emotion/styled";
-import PinnedPosts from "src/routes/Feed/PostList/PinnedPosts";
 import SearchInput from "./SearchInput";
+import Close from "./Close"; // 导入 Close 组件
 
 type Props = {
   fullWidth: boolean;
-  q: string; // 添加 q 属性
-  setQ: React.Dispatch<React.SetStateAction<string>>; // 添加 setQ 属性
+  q: string;
+  setQ: React.Dispatch<React.SetStateAction<string>>;
 };
 
 const Header: React.FC<Props> = ({ fullWidth, q, setQ }) => {
@@ -23,6 +23,8 @@ const Header: React.FC<Props> = ({ fullWidth, q, setQ }) => {
           <div className="search-input">
             <SearchInput value={q} onChange={(e) => setQ(e.target.value)} />
           </div>
+          {/* 根据 q 的值显示不同的按钮 */}
+          <Close onClick={() => setQ("")} symbol={q.length === 0 ? "☺" : "☓"} />
           <div className="contact">
             <Contact />
           </div>
@@ -39,50 +41,51 @@ const StyledWrapper = styled.div`
   top: 0;
 
   .backdrop {
-    position: fixed; /* 固定定位，使其覆盖整个视口 */
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    height: 6rem; /* 限制背景的高度，与 Header 的高度相同 */
-    background-color: rgba(255, 255, 255, 0); /* 半透明背景色 */
-    backdrop-filter: blur(20px); /* 设置模糊效果 */
-    z-index: -1; /* 确保背景在内容后面 */
+    height: 6rem;
+    background-color: rgba(255, 255, 255, 0);
+    backdrop-filter: blur(20px);
+    z-index: -1;
   }
 
   .container {
     display: grid;
-    grid-template-columns: repeat(12, 1fr); /* 创建 12 列网格 */
-    align-items: center; /* 垂直居中对齐 */
+    grid-template-columns: repeat(12, 1fr);
+    align-items: center;
     max-width: 1120px;
     height: 6rem;
     margin: 0 auto;
 
     .logo {
-      grid-column: 1 / span 4; /* Logo 占 4 列，靠左对齐 */
+      grid-column: 1 / span 4;
       display: flex;
-      justify-content: flex-start; /* Logo 靠左对齐 */
-      align-items: center; /* 垂直居中 */
+      justify-content: flex-start;
+      align-items: center;
     }
 
     .search-contact {
-      grid-column: 7 / span 8; /* SearchInput 和 Contact 占 8 列 */
+      grid-column: 7 / span 8;
       display: flex;
-      justify-content: flex-end; /* 靠右对齐 */
-      align-items: center; /* 垂直居中 */
+      justify-content: flex-end;
+      align-items: center;
 
       .search-input {
-        flex: 1; /* SearchInput 占据剩余空间 */
+        flex: 1;
         display: flex;
-        justify-content: flex-end; /* SearchInput 靠右对齐 */
-        align-items: center; /* 垂直居中 */
+        justify-content: flex-end;
+        align-items: center;
+        margin-right: 0.5rem;
       }
 
       .contact {
-        flex: 0 0 auto; /* Contact 不随容器缩放，保持自身宽度 */
+        flex: 0 0 auto;
         display: flex;
-        justify-content: flex-end; /* Contact 靠右对齐 */
-        align-items: center; /* 垂直居中 */
-        margin-left: 0.4rem; /* 可选：添加间距 */
+        justify-content: flex-end;
+        align-items: center;
+        margin-left: 0.4rem;
       }
     }
 

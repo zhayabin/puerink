@@ -63,6 +63,13 @@ const StyledWrapper = styled.div`
   flex-direction: column;
   min-height: 100vh; // 让整个页面高度至少为视口高度
   justify-content: space-between; // 确保内容和footer之间有空间
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  @media (max-width: 768px) {
+    padding-left: 0rem;
+    padding-right: 0rem;
+  }
 
  > .footer {
     display: grid;

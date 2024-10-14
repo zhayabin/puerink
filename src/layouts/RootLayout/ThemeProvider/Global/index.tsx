@@ -18,7 +18,7 @@ export const Global = () => {
           margin: 0;
           padding: 0;
           color: ${theme.colors.gray12};
-          background-color: ${theme.colors.gray1};
+          background-color: ${theme.colors.gray2};
           font-family: 'Pixel', Arial, sans-serif; // 使用本地Pixel字体
           letter-spacing: 0em; // 调整字间距
         }
