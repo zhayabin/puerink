@@ -119,8 +119,8 @@ const StyledWrapper = styled(Link)`
       > .date {
         margin-bottom: 0rem; // 底部间距
         .content {
-          font-size: 0.8rem; // 字体大小
-          color: ${({ theme }) => theme.colors.gray10}; // 字体颜色
+          font-size: 0.875rem; // 字体大小
+          color: ${({ theme }) => theme.colors.gray9}; // 字体颜色
         }
       }
       > .summary {

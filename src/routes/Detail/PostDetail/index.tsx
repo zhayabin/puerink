@@ -108,7 +108,7 @@ const StyledWrapper = styled.div`
     }
 
     > .date {
-      font-size: 0.8rem;
+      font-size: 0.875rem;
       color: ${({ theme }) => theme.colors.gray9};
       @media (min-width: 768px) {
         margin-left: 0;

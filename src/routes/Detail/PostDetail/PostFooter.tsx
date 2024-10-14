@@ -10,7 +10,7 @@ const Footer: React.FC<Props> = () => {
     <StyledWrapper>
       <a onClick={() => router.push("/")}> </a>
       <a onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-      ▲ 回到顶部
+      ⇧ 回到顶部
       </a>
     </StyledWrapper>
   )
@@ -26,7 +26,7 @@ const StyledWrapper = styled.div`
   a {
     margin-top: 3rem; //评论区到文章的距离
     cursor: pointer;
-
+    font-size: 0.875rem;
     :hover {
       color: #20973A;
       text-decoration: underline; /* 添加下划线 */

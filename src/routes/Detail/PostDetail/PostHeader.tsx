@@ -55,7 +55,7 @@ const StyledWrapper = styled.div`
   }
   nav {
     margin-top: 0.5rem;
-    color: ${({ theme }) => theme.colors.gray11};
+    color: ${({ theme }) => theme.colors.gray9};
     > .top {
       display: flex;
       margin-bottom: 0.75rem;
@@ -65,6 +65,7 @@ const StyledWrapper = styled.div`
         display: flex;
         gap: 0.5rem;
         align-items: center;
+        font-size: 0.875rem;
       }
     }
 

@@ -6,14 +6,16 @@ import { getPosts } from "../apis"
 import MetaConfig from "src/components/MetaConfig"
 import { queryClient } from "src/libs/react-query"
 import { queryKey } from "src/constants/queryKey"
-import { GetStaticProps } from "next"
+import { GetServerSideProps } from "next" // 修改为动态生成
 import { dehydrate } from "@tanstack/react-query"
 import { filterPosts } from "src/libs/utils/notion"
 import Footer from "src/routes/Feed/Footer"
 import ThemeToggle from "src/routes/Feed/ThemeToggle"
 import styled from "@emotion/styled"; // 引入 styled 用于创建新的容器
 
-export const getStaticProps: GetStaticProps = async () => {
+// 动态生成页面的 props
+export const getServerSideProps: GetServerSideProps = async () => {
+  // 从 API 获取文章并过滤
   const posts = filterPosts(await getPosts())
   await queryClient.prefetchQuery(queryKey.posts(), () => posts)
 
@@ -21,7 +23,7 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       dehydratedState: dehydrate(queryClient),
     },
-    revalidate: CONFIG.revalidateTime,
+    // revalidate: CONFIG.revalidateTime, // 注释掉，以便于测试动态生成
   }
 }
 
@@ -42,7 +44,6 @@ const FeedPage: NextPageWithLayout = () => {
 
   return (
     <StyledWrapper>
-
       <MetaConfig {...meta} />
       <Feed />
       <div className="footer">
@@ -50,7 +51,7 @@ const FeedPage: NextPageWithLayout = () => {
         <ThemeToggle />
       </div>
       <FullWidthContainer>
-
+        {/* 可在这里添加全宽内容 */}
       </FullWidthContainer>
     </StyledWrapper>
   )
@@ -78,5 +79,4 @@ const StyledWrapper = styled.div`
     padding-bottom: 2rem;
     margin-top: auto;
   }
-
 `
