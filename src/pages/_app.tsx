@@ -2,6 +2,8 @@ import { AppPropsWithLayout } from "../types";
 import { Hydrate, QueryClientProvider } from "@tanstack/react-query";
 import { RootLayout } from "src/layouts";
 import { queryClient } from "src/libs/react-query";
+import '../styles/twikoo.css'; // 引入 Twikoo 样式
+
 
 function App({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout || ((page) => page);

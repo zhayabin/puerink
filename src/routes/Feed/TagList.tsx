@@ -38,7 +38,9 @@ const TagList: React.FC<Props> = () => {
         <Emoji> </Emoji>
       </div>
       <div className="list">
-        {Object.keys(data).map((key) => (
+        {Object.keys(data)
+        .filter((key) => key !== "#留言") // 过滤掉“留言”标签
+        .map((key) => (
           <a
             key={key}
             data-active={key === currentTag}

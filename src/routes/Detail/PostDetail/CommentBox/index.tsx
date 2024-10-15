@@ -1,11 +1,17 @@
-import { TPost } from "src/types"
-import { CONFIG } from "site.config"
-import dynamic from "next/dynamic"
-
+import { TPost } from 'src/types'
+import { CONFIG } from 'site.config'
+import dynamic from 'next/dynamic'
 
 const GiscusComponent = dynamic(
   () => {
-    return import("./Giscus")
+    return import('./Giscus')
+  },
+  { ssr: false }
+)
+
+const TwikooComponent = dynamic(
+  () => {
+    return import('./Twikoo')
   },
   { ssr: false }
 )
@@ -19,6 +25,9 @@ const CommentBox: React.FC<Props> = ({ data }) => {
     <div>
       {CONFIG.giscus.enable && (
         <GiscusComponent id={data.id} slug={data.slug} title={data.title} />
+      )}
+      {CONFIG.twikoo.enable && (
+        <TwikooComponent id={data.id} slug={data.slug} title={data.title} />
       )}
     </div>
   )

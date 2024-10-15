@@ -21,8 +21,8 @@ const PostDetail: React.FC<Props> = () => {
 
   const category = (data.category && data.category?.[0]) || undefined
 
-  // 检查是否包含 '#评论' 标签
-  const hasCommentTag = data.tags?.includes("#评论")
+  // 检查是否包含 '#留言' 标签
+  const hasCommentTag = data.tags?.includes("#留言")
 
   return (
     <StyledWrapper>

@@ -32,7 +32,7 @@ const ContactCard: React.FC = () => {
         )}
         {/* 添加“关于”链接 */}
         <Link href="/about">
-          <div className="name">关于</div>
+          <div className="name">留言</div>
         </Link>
       </StyledWrapper>
     </>

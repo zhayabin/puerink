@@ -54,8 +54,13 @@ const CONFIG = {
     },
   },
 
+  twikoo: {
+    enable: true, // 设置为 true 时启用 Twikoo
+    envId: "https://puerinktwikoo.netlify.app/.netlify/functions/twikoo", // 例如：https://your-twikoo-instance.netlify.app
+  },
+
   giscus: {
-    enable: true, // 启用 Giscus 评论
+    enable: false, // 启用 Giscus 评论
     config: {
       repo: "zhayabin/puerink", // 替换为你的 GitHub 仓库
       repoId: "R_kgDOM1ZZJA",          // 替换为仓库的 repoId
