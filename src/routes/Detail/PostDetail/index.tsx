@@ -58,12 +58,13 @@ const PostDetail: React.FC<Props> = () => {
         {data.type[0] === "Post" && (
           <>
             <PostFooter />
+
+            {/* 仅在包含 '#评论' 标签时渲染 CommentBox */}
+            {hasCommentTag && <CommentBox data={data} />}
             <div className="footer">
               <Footer />
               <ThemeToggle />
             </div>
-            {/* 仅在包含 '#评论' 标签时渲染 CommentBox */}
-            {hasCommentTag && <CommentBox data={data} />}
           </>
         )}
       </article>
@@ -77,7 +78,7 @@ const StyledWrapper = styled.div`
   padding-left: 0rem;
   padding-right: 0rem;
   padding-top: 0rem; // 整个阅读页面的上下左右
-  padding-bottom: 3rem;
+  padding-bottom: 0rem;
   background-color: ;
   margin: 0 auto;
   > article {
@@ -88,7 +89,7 @@ const StyledWrapper = styled.div`
       display: grid;
       grid-column: span 12 / span 12;
       grid-template-columns: 6fr 1fr; // 调整左右的比例
-      padding-bottom: 1rem;
+      padding-bottom: 2rem;
       padding-top: 3rem;
       margin-top: auto;
     }

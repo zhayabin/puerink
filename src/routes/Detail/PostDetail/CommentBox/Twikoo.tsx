@@ -29,7 +29,8 @@ const TwikooComponent: React.FC<Props> = ({ id, slug, title }) => {
 
   useEffect(() => {
     const twikooScript = document.createElement('script');
-    twikooScript.src = 'https://cdn.jsdelivr.net/gh/zhayabin/twikoo-netlify/twikoo.nocss.js'; // 修改为本地路径
+    twikooScript.src = '/twikoo.nocss.js'; // 修改为本地路径
+
     twikooScript.defer = true;
     document.body.appendChild(twikooScript);
 

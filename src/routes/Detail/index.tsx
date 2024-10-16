@@ -30,7 +30,7 @@ export default Detail
 
 const StyledWrapper = styled.div`
   padding: 0rem 0;
-  padding-bottom: 1rem;
+  padding-bottom: 0rem;
   padding-left: 1rem;
   padding-right: 1rem;
 
