@@ -17884,7 +17884,7 @@ var e, t;
                 var e = this,
                   t = e._self._c;
                 return t("div", { staticClass: "tk-action" }, [
-
+                  // 评论按钮
                   t(
                     "a",
                     {
@@ -17903,12 +17903,16 @@ var e, t;
                         domProps: { innerHTML: e._s(e.iconCommentSolid) },
                       }),
                       e._v(" "),
-                      t("span", { staticClass: "tk-action-count" }, [
-                        e._v(e._s(e.repliesCountStr)),
-                      ]),
+                      // 评论数
+                      e.repliesCountStr !== "0" && e.repliesCountStr !== ""
+                        ? t("span", { staticClass: "tk-action-count" }, [
+                            e._v(e._s(e.repliesCountStr)),
+                          ])
+                        : e._e(),
                     ],
                   ),
                   e._v(" "),
+                  // 点赞按钮
                   t(
                     "a",
                     {
@@ -17928,9 +17932,12 @@ var e, t;
                         domProps: { innerHTML: e._s(e.iconLikeSolid) },
                       }),
                       e._v(" "),
-                      t("span", { staticClass: "tk-action-count" }, [
-                        e._v(e._s(e.likeCountStr)),
-                      ]),
+                      // 点赞数
+                      e.likeCountStr !== "0" && e.likeCountStr !== ""
+                        ? t("span", { staticClass: "tk-action-count" }, [
+                            e._v(e._s(e.likeCountStr)),
+                          ])
+                        : e._e(),
                     ],
                   ),
                 ]);
@@ -18453,49 +18460,7 @@ var e, t;
                           },
                         }),
                         e._v(" "),
-                        t(
-                          "select",
-                          {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: e.filter.type,
-                                expression: "filter.type",
-                              },
-                            ],
-                            staticClass: "tk-admin-comment-filter-type",
-                            on: {
-                              change: function (t) {
-                                var n = Array.prototype.filter
-                                  .call(t.target.options, function (e) {
-                                    return e.selected;
-                                  })
-                                  .map(function (e) {
-                                    return "_value" in e ? e._value : e.value;
-                                  });
-                                e.$set(
-                                  e.filter,
-                                  "type",
-                                  t.target.multiple ? n : n[0],
-                                );
-                              },
-                            },
-                          },
-                          [
-                            t("option", { attrs: { value: "" } }, [
-                              e._v(e._s(e.t("ADMIN_COMMENT_FILTER_ALL"))),
-                            ]),
-                            e._v(" "),
-                            t("option", { attrs: { value: "VISIBLE" } }, [
-                              e._v(e._s(e.t("ADMIN_COMMENT_FILTER_VISIBLE"))),
-                            ]),
-                            e._v(" "),
-                            t("option", { attrs: { value: "HIDDEN" } }, [
-                              e._v(e._s(e.t("ADMIN_COMMENT_FILTER_HIDDEN"))),
-                            ]),
-                          ],
-                        ),
+
                         e._v(" "),
                         t(
                           "el-button",
@@ -28770,7 +28735,7 @@ var e, t;
                     ],
                   ),
                   a + "_SEARCH",
-                  ["搜索", "搜索", "搜尋", "Search", "Излаш", "検索"],
+                  ["⌕ 搜索", "搜索", "搜尋", "Search", "Излаш", "検索"],
                 ),
                 a + "_SEARCH_PLACEHOLDER",
                 [
@@ -30195,7 +30160,7 @@ var e, t;
                                 ]),
                                 "SUBMIT_SEND",
                                 [
-                                  "发送",
+                                  "发送↗",
                                   "發送",
                                   "傳送",
                                   "Send",
@@ -30245,7 +30210,7 @@ var e, t;
                       ),
                       "SUBMIT_SENDING",
                       [
-                        "发送中",
+                        "发送中⇄",
                         "發送中",
                         "正在傳送",
                         "Sending",

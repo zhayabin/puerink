@@ -3,24 +3,15 @@ import React from "react";
 import { CONFIG } from "site.config";
 import { Emoji } from "src/components/Emoji";
 import Link from "next/link"; // 引入 Link 组件
+import { useRouter } from "next/router"
 
 const ContactCard: React.FC = () => {
+  const router = useRouter()
   return (
     <>
-      <StyledTitle>
-        <Emoji> </Emoji>
-      </StyledTitle>
+
       <StyledWrapper>
-        {CONFIG.profile.email && (
-          <a
-            href={`mailto:${CONFIG.profile.email}`}
-            rel="noreferrer"
-            target="_blank"
-            css={{ overflow: "hidden" }}
-          >
-            <div className="name"></div>
-          </a>
-        )}
+        <a onClick={() => router.push("/")}>首页</a>
         {CONFIG.profile.linkedin && (
           <a
             href={`https://space.bilibili.com/24683954`}

@@ -7,20 +7,9 @@ import Link from "next/link"; // 引入 Link 组件
 const ContactCard: React.FC = () => {
   return (
     <>
-      <StyledTitle>
-        <Emoji> </Emoji>
-      </StyledTitle>
+
       <StyledWrapper>
-        {CONFIG.profile.email && (
-          <a
-            href={`mailto:${CONFIG.profile.email}`}
-            rel="noreferrer"
-            target="_blank"
-            css={{ overflow: "hidden" }}
-          >
-            <div className="name"> </div>
-          </a>
-        )}
+
         {CONFIG.profile.linkedin && (
           <a
             href={`https://space.bilibili.com/24683954`}

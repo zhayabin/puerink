@@ -67,7 +67,7 @@ const StyledWrapper = styled.div`
     }
 
     .search-contact {
-      grid-column: 7 / span 8;
+      grid-column: 6 / span 8;
       display: flex;
       justify-content: flex-end;
       align-items: center;
@@ -85,7 +85,7 @@ const StyledWrapper = styled.div`
         display: flex;
         justify-content: flex-end;
         align-items: center;
-        margin-left: 0.4rem;
+        margin-left: 1rem;
       }
     }
 
