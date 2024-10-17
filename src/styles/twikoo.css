@@ -112,7 +112,7 @@
 .tk-row.actions {
   position: relative;
   margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   margin-left: rem;
   align-items: center;
   justify-content: flex-end;
@@ -120,22 +120,19 @@
 
 .tk-row-actions-start {
   flex: 1;
+  gap: 1rem;
   display: flex;
   align-items: center;
+  user-select: none; /* 禁止选中 */
 }
 
 .tk-submit-action-icon {
   align-self: center;
   display: inline-block;
-  width: 1.25em;
-  line-height: 0;
-  margin-right: 10px;
-  cursor: pointer;
-  flex-shrink: 0;
 }
 
-.tk-submit-action-icon svg:hover {
-  opacity: 0.8;
+.tk-submit-action-icon:hover {
+  color: #20973A;
 }
 
 .tk-submit-action-icon.__markdown {
@@ -208,8 +205,7 @@
 }
 
 .tk-action-link {
-  margin-left: 0.2rem;
-  color: #20973A;
+  margin-left: 1rem;
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -234,10 +230,10 @@
 
 .tk-action-count {
   margin-left: 0.2rem;
-  font-size: 1rem;
+  font-size: 13.3px;
   height: 0rem;
   line-height: 0rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.018rem;
 }
 
 .tk-action-icon {
@@ -246,7 +242,6 @@
   height: 1em;
   width: 2em;
   line-height: 0;
-  color: #20973A;
   text-align: right;
 
 }
@@ -362,15 +357,11 @@
 }
 
 .tk-content.tk-content-expand span:nth-of-type(2) p {
-
-  opacity: 0.5; /* 50% 透明度 */
   margin-top: 0.2rem;
   margin-bottom: 0.6rem;
 }
 
 .tk-content.tk-content-expand span:nth-of-type(1) p {
-
-  opacity: 0.875; /* 50% 透明度 */
   margin-top: 0.2rem;
   margin-bottom: 0.6rem;
   font-size: 1rem;
@@ -393,6 +384,8 @@
   max-height: 200px;
   overflow: hidden;
   position: relative;
+  font-size: 0.875rem;
+  opacity: 0.7;
 }
 
 .tk-replies-expand {
@@ -402,13 +395,6 @@
 
 .tk-submit {
   margin-top: 1rem;
-}
-
-.tk-expand {
-  font-size: 0.875em;
-  margin-top: 0.5rem;
-
-  line-height: 2.5em;
 }
 
 .tk-lightbox {
@@ -859,14 +845,16 @@
 
 /* 全局 CSS */
 .tk-expand {
-  width: auto;
   cursor: pointer;
-  text-align: center;
-  transition: all 0.5s;
-  height: 1.5px;
-  margin-left: -32px; /* 设置负边距 */
-  margin-right: -15x; /* 设置负边距 */
-  background-color:  #20973A;
+  text-align: right;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  line-height: 3em;
+  white-space: nowrap; /* 不允许换行 */
+}
+
+.tk-expand:hover {
+  color: #20973A; /* 悬停时的文字颜色 */
 }
 
 .tk-content img {
@@ -930,8 +918,12 @@
 .el-button {
   font-size: 16px;
   white-space: nowrap;
+  margin-left: 1rem;
 }
 
+.el-button:hover {
+  color: #20973A; /* 悬停时的文字颜色 */
+}
 .el-button--mini {
   font-size: 14px;
   white-space: nowrap;

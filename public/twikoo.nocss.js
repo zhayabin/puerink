@@ -15971,7 +15971,7 @@ var e, t;
                           desc: (0, a.t)("ADMIN_CONFIG_ITEM_MAIL_SUBJECT"),
                           ph: "".concat(
                             (0, a.t)("ADMIN_CONFIG_EXAMPLE"),
-                            "您在虹墨空间站上的评论收到了回复",
+                            "您在空间站上的评论收到了回复",
                           ),
                           value: "",
                         },
@@ -15988,7 +15988,7 @@ var e, t;
                           ),
                           ph: "".concat(
                             (0, a.t)("ADMIN_CONFIG_EXAMPLE"),
-                            "虹墨空间站上有新评论了",
+                            "空间站上有新评论了",
                           ),
                           value: "",
                         },
@@ -17884,34 +17884,7 @@ var e, t;
                 var e = this,
                   t = e._self._c;
                 return t("div", { staticClass: "tk-action" }, [
-                  // 评论按钮
-                  t(
-                    "a",
-                    {
-                      staticClass: "tk-action-link",
-                      attrs: { href: "#" },
-                      on: { click: e.onReply },
-                    },
-                    [
-                      t("span", {
-                        staticClass: "tk-action-icon",
-                        domProps: { innerHTML: e._s(e.iconComment) },
-                      }),
-                      e._v(" "),
-                      t("span", {
-                        staticClass: "tk-action-icon tk-action-icon-solid",
-                        domProps: { innerHTML: e._s(e.iconCommentSolid) },
-                      }),
-                      e._v(" "),
-                      // 评论数
-                      e.repliesCountStr !== "0" && e.repliesCountStr !== ""
-                        ? t("span", { staticClass: "tk-action-count" }, [
-                            e._v(e._s(e.repliesCountStr)),
-                          ])
-                        : e._e(),
-                    ],
-                  ),
-                  e._v(" "),
+
                   // 点赞按钮
                   t(
                     "a",
@@ -17925,17 +17898,49 @@ var e, t;
                       t("span", {
                         staticClass: "tk-action-icon",
                         domProps: { innerHTML: e._s(e.iconLike) },
+                        style: { fontSize: "16px" }, // 修改字体大小和颜色
                       }),
                       e._v(" "),
                       t("span", {
                         staticClass: "tk-action-icon tk-action-icon-solid",
                         domProps: { innerHTML: e._s(e.iconLikeSolid) },
+                        style: { fontSize: "16px", color: "#ff0000" }, // 修改字体大小和颜色
                       }),
                       e._v(" "),
                       // 点赞数
                       e.likeCountStr !== "0" && e.likeCountStr !== ""
                         ? t("span", { staticClass: "tk-action-count" }, [
                             e._v(e._s(e.likeCountStr)),
+                          ])
+                        : e._e(),
+                    ],
+                  ),
+                  e._v(" "),
+                  // 评论按钮
+                  t(
+                    "a",
+                    {
+                      staticClass: "tk-action-link",
+                      attrs: { href: "#" },
+                      on: { click: e.onReply },
+                    },
+                    [
+                      t("span", {
+                        staticClass: "tk-action-icon",
+                        domProps: { innerHTML: e._s(e.iconComment) },
+                        style: { fontSize: "13.3px", marginBottom: "0.2rem" }, // 修改字体大小和颜色
+                      }),
+                      e._v(" "),
+                      t("span", {
+                        staticClass: "tk-action-icon tk-action-icon-solid",
+                        domProps: { innerHTML: e._s(e.iconCommentSolid) },
+                        style: { fontSize: "13.3px", marginBottom: "0.2rem", color: "#20973A" }, // 修改字体大小和颜色
+                      }),
+                      e._v(" "),
+                      // 评论数
+                      e.repliesCountStr !== "0" && e.repliesCountStr !== ""
+                        ? t("span", { staticClass: "tk-action-count" }, [
+                            e._v(e._s(e.repliesCountStr)),
                           ])
                         : e._e(),
                     ],
@@ -29972,7 +29977,7 @@ var e, t;
                             (0, o["default"])(
                               (0, o["default"])(
                                 (0, o["default"])(i, "COMMENTS_EXPAND", [
-                                  "查看更多",
+                                  "更多评论↓",
                                   "查看更多",
                                   "檢視更多",
                                   "Load more",
@@ -29991,7 +29996,7 @@ var e, t;
                               ),
                               "COMMENT_EXPAND",
                               [
-                                "展开⇩",
+                                "展开回复↓",
                                 "展開",
                                 "展開",
                                 "Read more",
@@ -30001,7 +30006,7 @@ var e, t;
                             ),
                             "COMMENT_COLLAPSE",
                             [
-                              "收起⇪",
+                              "隐藏回复↑",
                               "收起",
                               "閉合",
                               "Collapse",
@@ -30139,7 +30144,7 @@ var e, t;
                   ],
                 ),
                 "SUBMIT_CANCEL",
-                ["取消", "取消", "取消", "Cancel", "Бекор қилиш", "キャンセル"],
+                ["取消☓", "取消", "取消", "Cancel", "Бекор қилиш", "キャンセル"],
               ),
               (0, o["default"])(
                 (0, o["default"])(
@@ -30210,7 +30215,7 @@ var e, t;
                       ),
                       "SUBMIT_SENDING",
                       [
-                        "发送中⇄",
+                        "发送中⇆",
                         "發送中",
                         "正在傳送",
                         "Sending",
