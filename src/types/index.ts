@@ -23,16 +23,20 @@ export type TPost = {
   tags?: string[]
   category?: string[]
   summary?: string
+  time?: string
   author?: {
     id: string
     name: string
     profile_photo?: string
   }[]
+  logo?: string
+  name?: string
   title: string
   status: TPostStatus[]
   createdTime: string
   fullWidth: boolean
   thumbnail?: string
+
 }
 
 export type PostDetail = TPost & {

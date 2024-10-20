@@ -11,6 +11,7 @@ import { CONFIG } from "site.config"
 import { formatDate } from "src/libs/utils"
 import Footer from "src/routes/Feed/Footer"
 import ThemeToggle from "src/routes/Feed/ThemeToggle"
+import Image from "next/image"
 
 type Props = {}
 
@@ -26,48 +27,48 @@ const PostDetail: React.FC<Props> = () => {
 
   return (
     <StyledWrapper>
-      <article>
-        {category && (
+      {category && (
           <div css={{ marginBottom: "1.5rem" }}>
             <Category readOnly={data.status?.[0] === "PublicOnDetail"}>
               {category}
             </Category>
           </div>
         )}
-        {data.type[0] === "Post" && <PostHeader data={data} />}
+      {data.type[0] === "Post" && <PostHeader data={data} />}
+
+      <article>
+        {data.thumbnail && (
+            <div className="thumbnail">
+              <Image
+                src={data.thumbnail}
+                css={{ objectFit: "cover" }}
+                fill
+                alt={data.title}
+              />
+            </div>
+        )}
         <div>
           <NotionRenderer recordMap={data.recordMap} />
         </div>
-        <div className="mid">
-          {data.tags && (
-            <div className="tags">
-              {data.tags.map((tag: string) => (
-                <Tag key={tag}>{tag}</Tag>
-              ))}
-            </div>
-          )}
+        <div className="tags">
+          {data.tags?.map((tag: string, idx: number) => (
+          <Tag key={idx}>{tag}</Tag>
+          ))}
         </div>
 
-        <div className="date">
-          {formatDate(
-            data?.date?.start_date || data.createdTime,
-            CONFIG.lang
-          )}
-        </div>
 
-        {data.type[0] === "Post" && (
-          <>
-            <PostFooter />
-
-            {/* 仅在包含 '#评论' 标签时渲染 CommentBox */}
-            {hasCommentTag && <CommentBox data={data} />}
-            <div className="footer">
-              <Footer />
-              <ThemeToggle />
-            </div>
-          </>
-        )}
       </article>
+      <PostFooter />
+      {data.type[0] === "Post" && (
+        <>
+          {/* 仅在包含 '#留言' 标签时渲染 CommentBox */}
+          {hasCommentTag && <CommentBox data={data} />}
+        </>
+      )}
+      <div className="footer">
+        <Footer />
+        <ThemeToggle />
+      </div>
     </StyledWrapper>
   )
 }
@@ -81,39 +82,44 @@ const StyledWrapper = styled.div`
   padding-bottom: 0rem;
   background-color: ;
   margin: 0 auto;
+
   > article {
     margin: 0 auto;
-    max-width: 45rem; // 显示内容宽度
+    column-count: 2; // 将内容分为两栏
+    column-gap: 2rem; // 栏之间的间距
 
-    > .footer {
-      display: grid;
-      grid-column: span 12 / span 12;
-      grid-template-columns: 6fr 1fr; // 调整左右的比例
-      padding-bottom: 2rem;
-      padding-top: 3rem;
-      margin-top: auto;
+    @media (max-width: 767px) {
+    column-count: 1; // 将内容分为两栏
+  }
+
+   .tags {
+     display: flex; /* 使用 flex 布局 */
+     margin-top: 2rem; /* 推到底部 */
+     align-items: flex-end; /* 垂直对齐到底部 */
+     flex-grow: 1;
+     max-width: 100%;
+     align-items: center; /* 保持垂直居中 */
     }
 
-    > .mid {
-      display: flex;
-      margin-bottom: 0.3rem;
-      margin-top: 2rem;
-      align-items: center;
-      .tags {
-        display: flex;
-        overflow-x: auto;
-        flex-wrap: nowrap;
-        gap: 0.5rem;
-        max-width: 100%;
+    .thumbnail {
+      overflow: hidden;
+      position: relative;
+      margin-bottom: 0rem; //标题距离图片距离
+      border-radius: 0.2rem; //图片圆角
+      width: 100%;
+      background-color: ${({ theme }) => theme.colors.gray4};
+      padding-bottom: 33%; //调整进入帖子的图谱高度手机
+      @media (min-width: 1024px) {
+        padding-bottom: 33%; //调整进入帖子的图谱高度手机pc
       }
     }
-
-    > .date {
-      font-size: 0.875rem;
-      color: ${({ theme }) => theme.colors.gray9};
-      @media (min-width: 768px) {
-        margin-left: 0;
-      }
-    }
+  }
+  > .footer {
+    display: grid;
+    grid-column: span 12 / span 12;
+    grid-template-columns: 6fr 1fr; // 调整左右的比例
+    padding-bottom: 2rem;
+    padding-top: 3rem;
+    margin-top: auto;
   }
 `

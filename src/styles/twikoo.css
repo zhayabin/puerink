@@ -702,11 +702,14 @@
 .tk-admin-container {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  bottom: -1rem;
+  right: -2rem; /* 突破左侧 */
+  width: 88%;
   overflow: hidden;
   pointer-events: none;
+  @media (max-width: 767px) {
+    right: -1rem; /* 突破左侧 */
+  }
 }
 
 .tk-admin {
@@ -717,8 +720,7 @@
   height: 100%;
   overflow-y: auto;
   pointer-events: all;
-  border-radius: 0.5rem;
-  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 3px 0 0 3px;
   backdrop-filter: blur(150px);
   transition: all 0.5s ease;
   visibility: hidden;
@@ -744,16 +746,12 @@
 
 .tk-admin-close {
   position: sticky;
-  float: top;
-  display: block;
   top: 0;
   right: 0;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1rem;
+  height: 1rem;
   padding: 1rem;
   box-sizing: content-box;
-  color: #ffffff;
-  border-radius: 3rem;
 }
 
 .tk-login,
@@ -766,7 +764,6 @@
 }
 
 .tk-login-title {
-  color: #ffffff;
   font-size: 1.25rem;
   text-align: center;
   margin-top: 10rem;
@@ -774,7 +771,6 @@
 
 .tk-password,
 .tk-login-msg {
-  color: #ffffff;
   width: 80%;
   text-align: center;
   margin-top: 1rem;
@@ -785,7 +781,6 @@
 }
 
 .tk-login-msg a {
-  color: #ffffff;
   margin-left: 1em;
   text-decoration: underline;
 }
@@ -795,7 +790,6 @@
 }
 
 .tk-panel {
-  color: #ffffff;
   padding: 1rem;
 }
 
@@ -807,7 +801,6 @@
 }
 
 .tk-panel-logout {
-  color: #ffffff;
   font-size: 1rem;
   text-decoration: underline;
 }
@@ -818,18 +811,16 @@
 
   align-items: flex-end;
   justify-content: space-between;
-  border-bottom: 2px solid #c0c4cc;
+  border-bottom: 1px solid;
 }
 
 .tk-panel .tk-tab {
-  color: #c0c4cc;
   cursor: pointer;
   margin-bottom: -2px;
 }
 
 .tk-panel .tk-tab.__active {
-  color: #ffffff;
-  border-bottom: 2px solid #ffffff;
+  border-bottom: 2px solid;
 }
 
 
@@ -846,10 +837,8 @@
 /* 全局 CSS */
 .tk-expand {
   cursor: pointer;
-  text-align: right;
-  font-size: 1rem;
   margin-bottom: 1rem;
-  line-height: 3em;
+  line-height: 4em;
   white-space: nowrap; /* 不允许换行 */
 }
 
@@ -1127,21 +1116,7 @@
   display: none
 }
 
-.el-input__inner::-webkit-input-placeholder {
-  color: #C0C4CC
-}
 
-.el-input__inner:-ms-input-placeholder {
-  color: #C0C4CC
-}
-
-.el-input__inner::-ms-input-placeholder {
-  color: #C0C4CC
-}
-
-.el-input__inner::placeholder {
-  color: #C0C4CC
-}
 
 .el-input__inner:hover {
   border-color: #C0C4CC

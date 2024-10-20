@@ -1,4 +1,4 @@
-import PostCard from "src/routes/Feed/PostList/PostCard"
+import PostContent from "src/routes/Feed/PostList/PostContent"
 import React, { useMemo } from "react"
 import usePostsQuery from "src/hooks/usePostsQuery"
 import styled from "@emotion/styled"
@@ -19,7 +19,7 @@ const PinnedPosts: React.FC<Props> = ({ q }) => {
       category: DEFAULT_CATEGORY,
       order: "desc",
     })
-    return baseFiltered.filter((post) => post.tags?.includes("Pinned"))
+    return baseFiltered.filter((post) => post.tags?.includes("#置顶"))
   }, [data, q])
 
   if (filteredPosts.length === 0) return null
@@ -27,11 +27,11 @@ const PinnedPosts: React.FC<Props> = ({ q }) => {
   return (
     <StyledWrapper>
       <div className="wrapper">
-        <div className="header">📌 Pinned Posts</div>
+        <div className="header"> 置顶文章⇪</div>
       </div>
-      <div className="my-2">
+      <div className="PostContent">
         {filteredPosts.map((post) => (
-          <PostCard key={post.slug} data={post} />
+          <PostContent key={post.slug} data={post} />
         ))}
       </div>
     </StyledWrapper>
@@ -41,23 +41,17 @@ const PinnedPosts: React.FC<Props> = ({ q }) => {
 export default PinnedPosts
 
 const StyledWrapper = styled.div`
-  position: relative;
-  .wrapper {
-    display: flex;
-    margin-bottom: 1rem;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid ${({ theme }) => theme.colors.gray6};
+ .PostContent {
+    position: relative; // 设置为相对定位
   }
+
   .header {
-    display: flex;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-    gap: 0.25rem;
-    align-items: center;
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-    font-weight: 700;
-    cursor: pointer;
+    position: absolute; // 绝对定位
+    z-index: 1; // 确保在上方
+    background-color: ${({ theme }) => theme.colors.green8}; // 半透明背景
+    padding: 3px 3px 4px 7px; // 内边距
+    border-radius: 3px 0 2px 0; // 圆角
+    font-size: 12px
   }
+
 `

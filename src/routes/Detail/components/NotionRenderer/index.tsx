@@ -82,19 +82,22 @@ export default NotionRenderer
 const StyledWrapper = styled.div`
   /* // TODO: why render? */
   font-size: 1rem; // 设置文章字体大小
+  font-size: inherit; // 确保子元素继承父元素的字体大小
 
-  .notion {
-    font-size: inherit; // 确保子元素继承父元素的字体大小
-    text-align: justify; /* 对齐段落两端 */
-  }
+
   .notion-collection-page-properties {
     display: none !important;
   }
+  .notion-h-title  {
+    font-weight: normal;
+  }
   .notion-page {
     padding: 0;
-    width: ;
+    width: auto ;
     font-family: 'Pixel', 'Source Han Sans', Arial, sans-serif; // 使用特定字体
     font-size: inherit !important; // 确保字体大小继承
+    line-height: 1.6;
+
   }
 
   .notion-list {

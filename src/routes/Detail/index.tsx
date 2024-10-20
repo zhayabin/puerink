@@ -34,7 +34,7 @@ const StyledWrapper = styled.div`
   padding-left: 1rem;
   padding-right: 1rem;
 
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     padding-left: 0rem;
     padding-right: 0rem;
   }

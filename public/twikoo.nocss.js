@@ -19505,6 +19505,7 @@ var e, t;
                                 {
                                   staticClass: "tk-expand",
                                   on: { click: e.onExpand },
+                                  style: { fontSize: "12.6px", textAlign: "right" },
                                 },
                                 [e._v(e._s(e.t("COMMENT_EXPAND")))],
                               ),
@@ -19518,6 +19519,7 @@ var e, t;
                                 {
                                   staticClass: "tk-expand _collapse",
                                   on: { click: e.onCollapse },
+                                  style: { fontSize: "12.6px", textAlign: "right" },
                                 },
                                 [e._v(e._s(e.t("COMMENT_COLLAPSE")))],
                               ),
@@ -19532,128 +19534,7 @@ var e, t;
               }),
               (t.Yp = []);
           },
-          6524: function (e, t) {
-            "use strict";
-            (t.Yp = t.XX = void 0),
-              (t.XX = function () {
-                var e = this,
-                  t = e._self._c;
-                return t(
-                  "div",
-                  { staticClass: "tk-comments" },
-                  [
-                    t("tk-submit", {
-                      attrs: { config: e.config },
-                      on: { load: e.initComments },
-                    }),
-                    e._v(" "),
-                    t(
-                      "div",
-                      {
-                        directives: [
-                          {
-                            name: "loading",
-                            rawName: "v-loading",
-                            value: e.loading,
-                            expression: "loading",
-                          },
-                        ],
-                        staticClass: "tk-comments-container",
-                      },
-                      [
-                        t("div", { staticClass: "tk-comments-title" }, [
-                          t(
-                            "span",
-                            {
-                              staticClass: "tk-comments-count",
-                              class: { __hidden: !e.comments.length },
-                            },
-                            [
-                              t("span", [e._v(e._s(e.count))]),
-                              e._v(" "),
-                              t("span", [
-                                e._v(e._s(e.t("COMMENTS_COUNT_SUFFIX"))),
-                              ]),
-                            ],
-                          ),
-                          e._v(" "),
-                          t("span", [
-                            e.loading || e.loadingMore
-                              ? e._e()
-                              : t("span", {
-                                  staticClass: "tk-icon __comments",
-                                  domProps: { innerHTML: e._s(e.iconRefresh) },
-                                  on: { click: e.refresh },
-                                }),
-                            e.showAdminEntry
-                              ? t("span", {
-                                  staticClass: "tk-icon __comments",
-                                  domProps: { innerHTML: e._s(e.iconSetting) },
-                                  on: { click: e.openAdmin },
-                                })
-                              : e._e(),
-                          ]),
-                        ]),
-                        e._v(" "),
-                        e.loading || e.comments.length
-                          ? e._e()
-                          : t("div", { staticClass: "tk-comments-no" }, [
-                              e.errorMessage
-                                ? e._e()
-                                : t("span", [
-                                    e._v(e._s(e.t("COMMENTS_NO_COMMENTS"))),
-                                  ]),
-                              e._v(" "),
-                              e.errorMessage
-                                ? t(
-                                    "span",
-                                    { staticClass: "tk-comments-error" },
-                                    [e._v(e._s(e.errorMessage))],
-                                  )
-                                : e._e(),
-                            ]),
-                        e._v(" "),
-                        e._l(e.comments, function (n) {
-                          return t("tk-comment", {
-                            key: n.id,
-                            attrs: {
-                              comment: n,
-                              replying: e.replyId === n.id,
-                              config: e.config,
-                            },
-                            on: { reply: e.onReply, load: e.initComments },
-                          });
-                        }),
-                        e._v(" "),
-                        e.showExpand && !e.loading
-                          ? t("div", { staticClass: "tk-expand-wrap" }, [
-                              t(
-                                "div",
-                                {
-                                  directives: [
-                                    {
-                                      name: "loading",
-                                      rawName: "v-loading",
-                                      value: e.loadingMore,
-                                      expression: "loadingMore",
-                                    },
-                                  ],
-                                  staticClass: "tk-expand",
-                                  on: { click: e.onExpand },
-                                },
-                                [e._v(e._s(e.t("COMMENTS_EXPAND")))],
-                              ),
-                            ])
-                          : e._e(),
-                      ],
-                      2,
-                    ),
-                  ],
-                  1,
-                );
-              }),
-              (t.Yp = []);
-          },
+
           1276: function (e, t) {
             "use strict";
             (t.Yp = t.XX = void 0),
@@ -19818,6 +19699,129 @@ var e, t;
                       )
                     : e._e(),
                 ]);
+              }),
+              (t.Yp = []);
+          },
+          6524: function (e, t) {
+            "use strict";
+            (t.Yp = t.XX = void 0),
+              (t.XX = function () {
+                var e = this,
+                  t = e._self._c;
+                return t(
+                  "div",
+                  { staticClass: "tk-comments" },
+                  [
+                    t("tk-submit", {
+                      attrs: { config: e.config },
+                      on: { load: e.initComments },
+                    }),
+                    e._v(" "),
+                    t(
+                      "div",
+                      {
+                        directives: [
+                          {
+                            name: "loading",
+                            rawName: "v-loading",
+                            value: e.loading,
+                            expression: "loading",
+                          },
+                        ],
+                        staticClass: "tk-comments-container",
+                      },
+                      [
+                        t("div", { staticClass: "tk-comments-title" }, [
+                          t(
+                            "span",
+                            {
+                              staticClass: "tk-comments-count",
+                              class: { __hidden: !e.comments.length },
+                            },
+                            [
+                              t("span", [e._v(e._s(e.count))]),
+                              e._v(" "),
+                              t("span", [
+                                e._v(e._s(e.t("COMMENTS_COUNT_SUFFIX"))),
+                              ]),
+                            ],
+                          ),
+                          e._v(" "),
+                          t("span", [
+                            e.loading || e.loadingMore
+                              ? e._e()
+                              : t("span", {
+                                  staticClass: "tk-icon __comments",
+                                  domProps: { innerHTML: e._s(e.iconRefresh) },
+                                  on: { click: e.refresh },
+                                }),
+                            e.showAdminEntry
+                              ? t("span", {
+                                  staticClass: "tk-icon __comments",
+                                  domProps: { innerHTML: e._s(e.iconSetting) },
+                                  on: { click: e.openAdmin },
+                                })
+                              : e._e(),
+                          ]),
+                        ]),
+                        e._v(" "),
+                        e.loading || e.comments.length
+                          ? e._e()
+                          : t("div", { staticClass: "tk-comments-no" }, [
+                              e.errorMessage
+                                ? e._e()
+                                : t("span", [
+                                    e._v(e._s(e.t("COMMENTS_NO_COMMENTS"))),
+                                  ]),
+                              e._v(" "),
+                              e.errorMessage
+                                ? t(
+                                    "span",
+                                    { staticClass: "tk-comments-error" },
+                                    [e._v(e._s(e.errorMessage))],
+                                  )
+                                : e._e(),
+                            ]),
+                        e._v(" "),
+                        e._l(e.comments, function (n) {
+                          return t("tk-comment", {
+                            key: n.id,
+                            attrs: {
+                              comment: n,
+                              replying: e.replyId === n.id,
+                              config: e.config,
+                            },
+                            on: { reply: e.onReply, load: e.initComments },
+                          });
+                        }),
+                        e._v(" "),
+                        e.showExpand && !e.loading
+                          ? t("div", { staticClass: "tk-expand-wrap" }, [
+                              t(
+                                "div",
+                                {
+                                  directives: [
+                                    {
+                                      name: "loading",
+                                      rawName: "v-loading",
+                                      value: e.loadingMore,
+                                      expression: "loadingMore",
+                                    },
+                                  ],
+                                  staticClass: "tk-expand",
+                                  on: { click: e.onExpand },
+                                  style: { textAlign: "center" },
+                                },
+                                [e._v(e._s(e.t("COMMENTS_EXPAND")))],
+                              ),
+                            ])
+                          : e._e(),
+                      ],
+                      2,
+                    ),
+                  ],
+                  1,
+                );
               }),
               (t.Yp = []);
           },
@@ -31199,14 +31203,14 @@ var e, t;
               '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M444.52 3.52L28.74 195.42c-47.97 22.39-31.98 92.75 19.19 92.75h175.91v175.91c0 51.17 70.36 67.17 92.75 19.19l191.9-415.78c15.99-38.39-25.59-79.97-63.97-63.97z"></path></svg>';
           },
           9966: function (e) {
-            e.exports = "";
+            e.exports = ""; //刷新按钮
           },
           5910: function (e) {
             e.exports = "♥";
           },
           9671: function (e) {
             e.exports =
-              '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512"><path d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg>';
+              '☓';
           },
           9587: function (e) {
             e.exports =

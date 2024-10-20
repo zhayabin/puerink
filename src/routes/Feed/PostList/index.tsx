@@ -24,7 +24,7 @@ const PostList: React.FC<Props> = ({ q }) => {
   useEffect(() => {
     const updatePostsPerPage = () => {
       if (window.innerWidth > 1024) {
-        setPostsPerPage(8); // 大于1024px时显示8篇
+        setPostsPerPage(6); // 大于1024px时显示8篇
       } else {
         setPostsPerPage(6); // 默认显示6篇
       }
@@ -60,6 +60,11 @@ const PostList: React.FC<Props> = ({ q }) => {
           (post) => post && post.tags && post.tags.includes(currentTag)
         );
       }
+
+      // 排除标签为“#置顶”的帖子
+      newFilteredPosts = newFilteredPosts.filter(
+        (post) => !(post.tags && (post.tags.includes("#置顶") || post.tags.includes("")))
+      );
 
       // 分类过滤
       if (currentCategory !== DEFAULT_CATEGORY) {
@@ -121,23 +126,24 @@ const PostList: React.FC<Props> = ({ q }) => {
 
 const StyledPostList = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr); // 两列布局
-  grid-column-gap: 1.2rem; // 设置左右间距
-  grid-row-gap: 2rem; // 设置上下间距
+  grid-template-columns: repeat(3, 1fr); // 两列布局
+  grid-column-gap: 1rem; // 设置左右间距
+  grid-row-gap: 3rem; // 设置上下间距
   max-width: 100%; // 防止被拉长
   max-height: 0%; // 保持比例
 
-
-  @media (max-width: 1024px) {
-    grid-template-columns: repeat(3, 1fr); // 小于1024px时为三列
-    grid-column-gap: 1.2rem; // 设置左右间距
+  @media (max-width: 539px) {
+    grid-template-columns: repeat(2, 1fr); // 小于768px时为两列
+    grid-column-gap: 1rem; // 设置左右间距
   }
 
-  @media (max-width: 768px) {
+  @media (min-width: 540px) and (max-width: 819px) {
     grid-template-columns: repeat(2, 1fr); // 小于768px时为两列
     grid-column-gap: 1rem; // 设置左右间距
   }
 `;
+
+
 
 const PaginationContainer = styled.div`
   display: flex;

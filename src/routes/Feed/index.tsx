@@ -26,8 +26,8 @@ const Feed: React.FC<Props> = () => {
         <div className="left"> {/* 左侧内容 */}
          <TagList />
         </div>
-        <div className="right"> {/* 右侧内容 */}
-         <Gif />
+        <div className="right"> {/* 右侧内容Gif模组 */}
+
         </div>
       </div>
 
@@ -36,6 +36,8 @@ const Feed: React.FC<Props> = () => {
 
         <div className="tags">
         </div>
+        <PinnedPosts q={q} />
+        <hr className="hr" />
         <PostList q={q} />
 
       </div>
@@ -48,25 +50,9 @@ export default Feed
 
 const StyledWrapper = styled.div`
   grid-template-columns: repeat(16, minmax(0, 1fr));
-  padding: 0rem 0;  //顶部标题距离内容的距离
-  padding-left: 0rem;
-  padding-right: 0rem;
   display: grid;
   position: relative; // 添加相对定位
-
-  @media (max-width: 768px) {
-    display: block;
-    padding: 0rem 0; //顶部标题距离内容的距离
-    padding-left: 0rem;
-    padding-right: 0rem;
-  }
-
-  @media (max-width: 1024px) {
-    display: block;
-    padding: 0rem 0; //顶部标题距离内容的距离
-    padding-left: 0rem;
-    padding-right: 0rem;
-  }
+  display: block;
 
   > .header {
     position: sticky;
@@ -83,14 +69,10 @@ const StyledWrapper = styled.div`
     display: grid;
     grid-column: span 16 / span 16;
     grid-template-columns: 2fr 1fr; //调整左右的比例
-    gap: 1rem;
-    height: 3.5rem;
     margin-bottom: 1rem;
 
     .left {
      margin-top: 1rem;
-     margin-bottom: 0rem;
-
     }
 
     .right {
@@ -121,13 +103,17 @@ const StyledWrapper = styled.div`
 
     > .tags {
       display: block;
-
       @media (min-width: 1025px) {
-        display: none;
+      display: none;
+      }
+    }
+    > .hr {
+      margin: 1rem 0; /* 上下距离 */
+      height: 1px; /* 粗细 */
+      background-color: ${({ theme }) => theme.colors.gray6}; /* 线的颜色 */
+      border: none; /* 移除默认边框 */
       }
     }
   }
-
-
 
 `

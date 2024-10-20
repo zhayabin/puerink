@@ -28,17 +28,14 @@ const Tag: React.FC<Props> = ({ children }) => {
 export default Tag
 
 const StyledWrapper = styled.div`
-  padding-top: 0rem;
-  padding-bottom: 0rem;
-  padding-left: 0rem;
-  padding-right: 0rem;
-  border-radius: 0px;
-  font-size: 0.875rem;
-  line-height: 1rem;
+  white-space: nowrap; // 禁止换行
+  font-size: 10px; // 字体大小
   font-weight: 500;
-  color: ${({ theme }) => theme.colors.gray9};
+  color: ${({ theme }) => theme.colors.gray12};
   background-color: ;
   cursor: pointer;
   overflow: hidden; /* 隐藏页面滚动 */
+  margin-right: 0.5rem;
+  margin-top: 0.1rem;
   }
 `

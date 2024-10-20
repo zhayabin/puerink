@@ -12,6 +12,7 @@ export const Global = () => {
           src: url('/pixel.woff2') format('woff2'); // 去掉public前缀
           font-weight: normal;
           font-style: normal;
+          font-display: swap;
         }
 
         body {
