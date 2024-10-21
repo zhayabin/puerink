@@ -1,5 +1,5 @@
 export function formatDate(date: any, local: any) {
-  const d = new Date(date + ' GMT+0800'); // 直接添加时区
+  const d = new Date(date); // 直接添加时区
   const now = new Date();
   const currentYear = now.getFullYear();
   const diffInMillis = now.getTime() - d.getTime();

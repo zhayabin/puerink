@@ -133,7 +133,7 @@ const StyledPostList = styled.div`
   max-height: 0%; // 保持比例
 
   @media (max-width: 539px) {
-    grid-template-columns: repeat(2, 1fr); // 小于768px时为两列
+    grid-template-columns: repeat(1, 1fr); // 小于768px时为两列
     grid-column-gap: 1rem; // 设置左右间距
   }
 

@@ -29,9 +29,9 @@ export default Tag
 
 const StyledWrapper = styled.div`
   white-space: nowrap; // 禁止换行
-  font-size: 10px; // 字体大小
+  font-size: 14px; // 字体大小
   font-weight: 500;
-  color: ${({ theme }) => theme.colors.gray12};
+  color: ${({ theme }) => theme.colors.gray11};
   background-color: ;
   cursor: pointer;
   overflow: hidden; /* 隐藏页面滚动 */

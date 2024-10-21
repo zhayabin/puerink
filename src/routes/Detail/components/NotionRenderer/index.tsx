@@ -94,7 +94,7 @@ const StyledWrapper = styled.div`
   .notion-page {
     padding: 0;
     width: auto ;
-    font-family: 'Pixel', 'Source Han Sans', Arial, sans-serif; // 使用特定字体
+    font-family: system-ui, 'Source Han Sans', Arial, sans-serif; // 使用特定字体
     font-size: inherit !important; // 确保字体大小继承
     line-height: 1.6;
 
