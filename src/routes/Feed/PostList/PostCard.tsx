@@ -6,6 +6,9 @@ import { TPost } from "../../../types" // 导入 TPost 类型定义
 import Image from "next/image" // 导入 Next.js 的 Image 组件，用于图片优化
 import Category from "../../../components/Category" // 导入分类组件
 import styled from "@emotion/styled" // 导入 Emotion 的 styled 组件，用于样式化
+import CommentCount from '../../../routes/Detail/PostDetail/CommentBox/CommentCount';
+
+
 
 // 定义 Props 类型，包含 data 属性
 type Props = {
@@ -25,7 +28,11 @@ const PostCard: React.FC<Props> = ({ data }) => {
             <Category>{category}</Category>
           </div>
         )}
-
+        {/* 添加 CommentCount 组件 */}
+        <CommentCount
+          urls={[`/${data.slug}`]} // 传递当前文章的 slug
+          envId={CONFIG.twikoo.envId} // 传递环境 ID
+        />
         <div className="topthumbnail">
           <div className="comment">
             <div className="date">
@@ -46,8 +53,8 @@ const PostCard: React.FC<Props> = ({ data }) => {
                   css={{ borderRadius: "100%" }}
                   src={data.author[0].profile_photo || CONFIG.profile.image}
                   alt="profile_photo"
-                  width={18}
-                  height={18}
+                  width={15}
+                  height={15}
                 />
                 <div className="name">{data.author[0].name}</div>
               </div>
@@ -58,8 +65,8 @@ const PostCard: React.FC<Props> = ({ data }) => {
                     css={{ borderRadius: "100%" }}
                     src={data.logo}
                     alt="logo"
-                    width={18}
-                    height={18}
+                    width={15}
+                    height={15}
                   />
                   <div className="">{data.name}</div>
                 </div>
@@ -137,10 +144,10 @@ const StyledWrapper = styled(Link)`
       .date,
       .time {
         display: flex;
-        font-size: 14px; /* 字体大小 */
-        margin-left: 0.3rem;
+        font-size: 12px; /* 字体大小 */
+        margin-left: 0.2rem;
         white-space: nowrap; /* 防止换行 */
-        color: ${({ theme }) => theme.colors.gray11}; /* 字体颜色 */
+        color: ${({ theme }) => theme.colors.gray12}; /* 字体颜色 */
         p {
           margin: 0;
         }
@@ -154,8 +161,8 @@ const StyledWrapper = styled(Link)`
       ltft: 0; /* 向左对齐 */
       z-index: 1; /* 确保标签在缩略图上方 */
       justify-content: space-between;
-      color: ${({ theme }) => theme.colors.gray11};
-      font-size: 14px; /* 字体大小 */
+      color: ${({ theme }) => theme.colors.gray12};
+      font-size: 12px; /* 字体大小 */
       padding: 0.5rem;
 
       .author {
@@ -177,17 +184,9 @@ const StyledWrapper = styled(Link)`
       }
     }
 
-    .thumbnail::after {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 0;
-      right: 0;
-      bottom: -1px;
-      background: linear-gradient(to top, ${({ theme }) => theme.colors.gray2}, transparent);
-    }
+
     > .content {
-      padding: 0.5rem;
+      padding: 0rem;
       &[data-category="false"] {
         padding-top: 0.875rem; // 标题与图片边距
       }
@@ -229,8 +228,8 @@ const StyledWrapper = styled(Link)`
        .date,
        .time {
          display: flex;
-         font-size: 14px; // 字体大小
-         margin-left: 0.3rem;
+         font-size: 12px; // 字体大小
+         margin-left: 0.2rem;
          white-space: nowrap;
          color: ${({ theme }) => theme.colors.gray11}; // 字体颜色
          p {
@@ -245,7 +244,7 @@ const StyledWrapper = styled(Link)`
       }
 
       > .summary {
-        font-size: 14px; // 字体大小
+        font-size: 12px; // 字体大小
         p {
           line-height: 1.2rem; // 行高
           color: ${({ theme }) => theme.colors.gray10}; // 字体颜色

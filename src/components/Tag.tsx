@@ -29,8 +29,8 @@ export default Tag
 
 const StyledWrapper = styled.div`
   white-space: nowrap; // 禁止换行
-  font-size: 14px; // 字体大小
-  font-weight: 500;
+  font-size: 12px; // 字体大小
+  font-weight: 400;
   color: ${({ theme }) => theme.colors.gray11};
   background-color: ;
   cursor: pointer;

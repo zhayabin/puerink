@@ -10,6 +10,7 @@ declare global {
 
 // 定义 Twikoo 类型
 interface Twikoo {
+  getCommentsCount: any;
   init: (options: {
     envId: string;
     el: string;
