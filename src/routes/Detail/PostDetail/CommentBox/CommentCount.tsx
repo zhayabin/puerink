@@ -1,47 +1,41 @@
 import React, { useEffect, useState } from 'react';
 
-interface CommentCount {
+interface CommentCountResponse {
   url: string;
   count: number;
 }
 
 const CommentCount: React.FC<{ urls: string[]; envId: string }> = ({ urls, envId }) => {
-  const [counts, setCounts] = useState<CommentCount[]>([]);
-  const [error, setError] = useState<string | null>(null);
-
-  const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms)); // 等待函数
+  const [counts, setCounts] = useState<number[]>([]);
 
   useEffect(() => {
     const getCommentsCount = async () => {
       try {
-        const res = await window.twikoo.getCommentsCount({
+        const res: CommentCountResponse[] = await window.twikoo.getCommentsCount({
           envId,
           urls,
           includeReply: false,
         });
-        setCounts(res);
-      } catch (err) {
-        console.error('获取评论数错误:', err);
-        setError('获取评论数失败');
-        await sleep(2000); // 等待 2 秒
-        getCommentsCount(); // 重试
+        setCounts(res.map(item => item.count));
+      } catch {
+        setCounts([0]); // 错误时显示 "0"
       }
     };
-
     getCommentsCount();
   }, [envId, urls]);
 
   return (
     <div>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
       {counts.length > 0 ? (
-        counts.map(({ count }, idx) => (
+        counts.map((count, idx) => (
           <div key={idx}>
-            {count} 回复
+            {count === 0 ? '无' : count}
+            <span role="img" aria-label="回复气泡">评论</span>
+
           </div>
         ))
       ) : (
-        <p>暂无评论</p>
+        <span role="img" aria-label="回复气泡">评论</span> // 显示回复气泡 emoji
       )}
     </div>
   );

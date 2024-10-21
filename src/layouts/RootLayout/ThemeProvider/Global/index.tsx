@@ -20,7 +20,7 @@ export const Global = () => {
           padding: 0;
           color: ${theme.colors.gray12};
           background-color: ${theme.colors.gray2};
-          font-family:  system-ui, Arial, sans-serif; // 使用本地Pixel字体
+          font-family:  'Pixel', Arial, sans-serif; // 使用本地Pixel字体
           letter-spacing: 0em; // 调整字间距
         }
 

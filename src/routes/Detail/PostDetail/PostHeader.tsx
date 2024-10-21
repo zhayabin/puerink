@@ -19,7 +19,7 @@ const PostHeader: React.FC<Props> = ({ data }) => {
             {data.author && data.author[0] && data.author[0].name ? (
               <div className="author">
                 <Image
-                  css={{ borderRadius: "10" }}
+                  css={{ borderRadius: "100%" }}
                   src={data.author[0].profile_photo || CONFIG.profile.image}
                   alt="profile_photo"
                   width={20}
@@ -31,7 +31,7 @@ const PostHeader: React.FC<Props> = ({ data }) => {
               data.logo && (
                 <div className="author">
                   <Image
-                    css={{ borderRadius: "10%" }}
+                    css={{ borderRadius: "100%" }}
                     src={data.logo}
                     alt="logo"
                     width={20}
@@ -74,7 +74,7 @@ const StyledWrapper = styled.div`
     > .top {
       display: flex;
       margin-bottom: 1rem;
-      gap: 0.5rem;
+      gap: 0.2rem;
       justify-content: space-between;
       margin-top: auto;
       align-items: center;
@@ -83,7 +83,7 @@ const StyledWrapper = styled.div`
 
       .author {
         display: flex;
-        gap: 0.5rem;
+        gap: 0.3rem;
         align-items: center;
         flex-grow: 1;
       }

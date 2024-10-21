@@ -28,22 +28,13 @@ const PostCard: React.FC<Props> = ({ data }) => {
             <Category>{category}</Category>
           </div>
         )}
-        {/* 添加 CommentCount 组件 */}
-        <CommentCount
-          urls={[`/${data.slug}`]} // 传递当前文章的 slug
-          envId={CONFIG.twikoo.envId} // 传递环境 ID
-        />
+
         <div className="topthumbnail">
-          <div className="comment">
-            <div className="date">
-            {formatDate( // 格式化日期并显示
-              data?.date?.start_date || data.createdTime,
-              CONFIG.lang
-               )}
-            </div>
-            <div className="time">
-              <p>{data.time}</p> {/* 显示时间 */}
-            </div>
+          <div className="CommentCount">
+            <CommentCount
+              urls={[`/${data.slug}`]} // 传递当前文章的 slug
+              envId={CONFIG.twikoo.envId} // 传递环境 ID
+            />
           </div>
 
           <div className="authorname">
@@ -132,7 +123,7 @@ const StyledWrapper = styled(Link)`
     .topthumbnail {
      position: relative; /* 使其父元素相对定位 */
     }
-    .comment {
+    .CommentCount {
       display: flex; /* 使用flex布局 */
       flex-wrap: wrap; /* 允许换行 */
       position: absolute; /* 绝对定位 */
@@ -140,17 +131,12 @@ const StyledWrapper = styled(Link)`
       right: 0; /* 向右对齐 */
       z-index: 1; /* 确保标签在缩略图上方 */
       padding: 0 0.5rem 0.5rem 0;
-
-      .date,
-      .time {
-        display: flex;
-        font-size: 12px; /* 字体大小 */
-        margin-left: 0.2rem;
-        white-space: nowrap; /* 防止换行 */
-        color: ${({ theme }) => theme.colors.gray12}; /* 字体颜色 */
-        p {
-          margin: 0;
-        }
+      font-size: 12px; /* 字体大小 */
+      margin-left: 0.2rem;
+      white-space: nowrap; /* 防止换行 */
+      color: ${({ theme }) => theme.colors.gray12}; /* 字体颜色 */
+      p {
+        margin: 0;
       }
     }
     .authorname {
@@ -167,7 +153,7 @@ const StyledWrapper = styled(Link)`
 
       .author {
         display: flex;
-        gap: 0.5rem;
+        gap: 0.3rem;
         align-items: center;
         white-space: nowrap; /* 防止换行 */
       }
@@ -177,13 +163,23 @@ const StyledWrapper = styled(Link)`
       position: relative; /* 相对定位缩略图 */
       width: 100%; /* 100% 宽度 */
       background-color: ${({ theme }) => theme.colors.gray2}; /* 背景颜色 */
-      padding-bottom: 50%; /* 调整手机显示图片高度 */
+      padding-bottom: 45%; /* 调整手机显示图片高度 */
 
       @media (min-width: 540px) {
         padding-bottom: 61.8%; /* 调整 PC 图显示高度 */
       }
     }
-
+    .thumbnail::after {
+      content: "";
+      position: absolute;
+      top: 80%;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      overflow: hidden; /* 超出隐藏 */
+      background: linear-gradient(to top, ${({ theme }) => theme.colors.gray1} 1%, transparent 100%);
+      opacity: 0.5; // 禁用时的透明度
+    }
 
     > .content {
       padding: 0rem;
