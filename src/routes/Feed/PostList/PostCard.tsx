@@ -7,6 +7,7 @@ import Image from "next/image" // 导入 Next.js 的 Image 组件，用于图片
 import Category from "../../../components/Category" // 导入分类组件
 import styled from "@emotion/styled" // 导入 Emotion 的 styled 组件，用于样式化
 import CommentCount from '../../../routes/Detail/PostDetail/CommentBox/CommentCount';
+import VisitorCount from '../../../routes/Detail/PostDetail/CommentBox/VisitorCount';
 
 
 
@@ -33,6 +34,11 @@ const PostCard: React.FC<Props> = ({ data }) => {
           <div className="CommentCount">
             <CommentCount
               urls={[`/${data.slug}`]} // 传递当前文章的 slug
+              envId={CONFIG.twikoo.envId} // 传递环境 ID
+            />
+          </div>
+          <div className="VisitorCount">
+            <VisitorCount
               envId={CONFIG.twikoo.envId} // 传递环境 ID
             />
           </div>
