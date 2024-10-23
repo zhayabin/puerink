@@ -54,9 +54,10 @@ const CONFIG = {
     },
   },
 
-  twikoo: {
-    enable: true, // 设置为 true 时启用 Twikoo
-    envId: "https://puerinktwikoo.netlify.app/.netlify/functions/twikoo", // 例如：https://your-twikoo-instance.netlify.app
+  waline: {
+    enable: true,
+    serverURL: 'https://puerinkwaline.netlify.app/.netlify/functions/comment',
+    comment: true,
   },
 
   isProd: process.env.VERCEL_ENV === "production", // 区分开发和生产环境 (参考: https://vercel.com/docs/environment-variables#system-environment-variables)

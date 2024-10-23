@@ -6,7 +6,11 @@ import { TPost } from "../../../types" // 导入 TPost 类型定义
 import Image from "next/image" // 导入 Next.js 的 Image 组件，用于图片优化
 import Category from "../../../components/Category" // 导入分类组件
 import styled from "@emotion/styled" // 导入 Emotion 的 styled 组件，用于样式化
+<<<<<<< HEAD
 import CommentCount from '../../../routes/Detail/PostDetail/CommentBox/CommentCount';
+=======
+import CommentCount from 'src/components/CommentCount'; // 引入评论数组件
+>>>>>>> af156cbb68124db3cf7846f159eb83e77ec6aa11
 
 
 // 定义 Props 类型，包含 data 属性
@@ -29,12 +33,15 @@ const PostCard: React.FC<Props> = ({ data }) => {
         )}
 
         <div className="topthumbnail">
+<<<<<<< HEAD
           <div className="CommentCount">
             <CommentCount
               urls={[`/${data.slug}`]} // 传递当前文章的 slug
               envId={CONFIG.twikoo.envId} // 传递环境 ID
             />
           </div>
+=======
+>>>>>>> af156cbb68124db3cf7846f159eb83e77ec6aa11
 
           <div className="authorname">
             {data.author && data.author[0] && data.author[0].name ? (
@@ -99,6 +106,9 @@ const PostCard: React.FC<Props> = ({ data }) => {
                 )}
               </div>
             </div>
+
+            {/* 引入评论数 */}
+            <CommentCount slug={data.slug} serverURL={CONFIG.waline.serverURL} />
 
             <div className="time">
               <p>{data.time}</p> {/* 显示时间 */}
