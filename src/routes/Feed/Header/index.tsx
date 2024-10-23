@@ -19,16 +19,20 @@ const Header: React.FC<Props> = ({ fullWidth, q, setQ }) => {
         <div className="logo">
           <Logo />
         </div>
-        <div className="search-contact">
-          <div className="search-input">
+
+        <div className="search" >
+          <div className="close" style={{ height: '20px'}}>
+            <Close onClick={() => setQ("")} symbol={q.length === 0 ? "magnifying-glass" : "cross"} />
+          </div>
+          <div className="search-input" >
             <SearchInput value={q} onChange={(e) => setQ(e.target.value)} />
           </div>
-          {/* 根据 q 的值显示不同的按钮 */}
-          <Close onClick={() => setQ("")} symbol={q.length === 0 ? "☺" : "☓"} />
-          <div className="contact">
-            <Contact />
-          </div>
         </div>
+
+        <div className="contact">
+          <Contact />
+        </div>
+
       </div>
     </StyledWrapper>
   );
@@ -38,7 +42,10 @@ export default Header;
 
 const StyledWrapper = styled.div`
   position: relative; /* 使得后面的内容可以在这个元素上面 */
-  top: 0;
+  display: flex; /* 使用flex布局 */
+  flex-direction: column; /* 垂直方向 */
+  justify-content: center; /* 垂直居中 */
+  height: 6rem; /* 确保父容器有高度 */
 
   .backdrop {
     position: fixed;
@@ -52,48 +59,36 @@ const StyledWrapper = styled.div`
   }
 
   .container {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    align-items: center;
-    max-width: 1120px;
-    height: 6rem;
-    margin: 0 auto;
+    display: flex; /* 使用flex布局 */
+    align-items: center; /* 垂直居中 */
+    justify-content: space-between; /* 标签和日期之间的间距 */
 
     .logo {
-      grid-column: 1 / span 4;
       display: flex;
       justify-content: flex-start;
       align-items: center;
+      flex-grow: 1;
     }
 
-    .search-contact {
-      grid-column: 6 / span 8;
+    .search {
+      display: flex;
+      justify-content: flex-end;
+      .close {
+        margin-top: auto; /* 推到底部 */
+      }
+      .search-input {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+      }
+    }
+
+    .contact {
+      flex: 0 0 auto;
       display: flex;
       justify-content: flex-end;
       align-items: center;
-
-      .search-input {
-        flex: 1;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        margin-right: 0.5rem;
-      }
-
-      .contact {
-        flex: 0 0 auto;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        margin-left: 1rem;
-      }
-    }
-
-    &[data-full-width="true"] {
-      @media (min-width: 768px) {
-        padding-left: 6rem;
-        padding-right: 6rem;
-      }
+      margin-left: 0rem;
     }
   }
 `;

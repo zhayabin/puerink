@@ -46,9 +46,13 @@ const FeedPage: NextPageWithLayout = () => {
     <StyledWrapper>
       <MetaConfig {...meta} />
       <Feed />
-      <div className="footer">
-        <Footer />
-        <ThemeToggle />
+      <div className="footertoggle">
+        <div className="footer">
+         <Footer />
+        </div>
+        <div className="toggle">
+         <ThemeToggle />
+        </div>
       </div>
       <FullWidthContainer>
         {/* 可在这里添加全宽内容 */}
@@ -72,11 +76,25 @@ const StyledWrapper = styled.div`
     padding-right: 0rem;
   }
 
- > .footer {
-    display: grid;
-    grid-column: span 12 / span 12;
-    grid-template-columns: 6fr 1fr; //调整左右的比例
+ > .footertoggle {
+    display: flex; /* 使用flex布局 */
+    align-items: center; /* 垂直居中 */
+    justify-content: space-between; /* 标签和日期之间的间距 */
     padding-bottom: 2rem;
-    margin-top: auto;
+
+    .footer {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-grow: 1;
+    }
+
+    .toggle {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-top: 0px;
+    }
   }
+}
 `

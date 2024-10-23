@@ -73,7 +73,7 @@ const StyledWrapper = styled.div`
     a {
       display: block;
       font-size: 0.875rem;
-      margin-right: 1rem;
+      padding: 0.5rem;
       color: ${({ theme }) => theme.colors.gray10};
       white-space: nowrap; /* 防止文字换行 */
       flex-shrink: 0;

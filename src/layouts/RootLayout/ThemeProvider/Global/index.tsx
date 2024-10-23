@@ -7,20 +7,12 @@ export const Global = () => {
   return (
     <_Global
       styles={css`
-        @font-face {
-          font-family: 'Pixel';
-          src: url('/pixel.woff2') format('woff2'); // 去掉public前缀
-          font-weight: normal;
-          font-style: normal;
-          font-display: swap;
-        }
-
         body {
           margin: 0;
           padding: 0;
           color: ${theme.colors.gray12};
-          background-color: ${theme.colors.gray2};
-          font-family:  'Pixel', Arial, sans-serif; // 使用本地Pixel字体
+          background-color: ${theme.colors.blackA12};
+          font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; // 使用系统默认字体
           letter-spacing: 0em; // 调整字间距
         }
 

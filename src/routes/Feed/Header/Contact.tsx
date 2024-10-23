@@ -37,13 +37,13 @@ const StyledTitle = styled.div`
 const StyledWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  font-size: 0.875rem;
+  font-size: 16px;
   margin-bottom: 0rem;
   gap: 0.5rem; /* 调整标签之间的间距 */
 
   a, a:hover, a:active {
     text-decoration: none;
-    color: ${({ theme }) => theme.colors.gray11};
+    color: ${({ theme }) => theme.colors.gray12};
   }
 
   a:hover, a:active {

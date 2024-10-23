@@ -32,14 +32,10 @@ const ContactCard: React.FC = () => {
 
 export default ContactCard;
 
-const StyledTitle = styled.div`
-  padding: 0.25rem;
-`;
-
 const StyledWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  font-size: 0.875rem;
+  font-size: 16px;
   margin-bottom: 0rem;
   gap: 0.5rem; /* 调整标签之间的间距 */
 

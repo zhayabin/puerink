@@ -14,7 +14,7 @@ const ThemeToggle: React.FC<Props> = () => {
   return (
     <StyledWrapper onClick={handleClick}>
 
-      {scheme === "light" ? "☀" : "☼"} {/* 将文本移到这里 */}
+      {scheme === "light" ? "☀" : "☀"} {/* 将文本移到这里 */}
     </StyledWrapper>
   )
 }
@@ -23,7 +23,7 @@ export default ThemeToggle
 
 const StyledWrapper = styled.div`
   cursor: pointer;
-  font-size: 0.875rem; /* 这里设置字体大小 */
+  font-size: 20px; /* 这里设置字体大小 */
   display: flex;
   justify-content: flex-end; /* 内容靠右 */
   align-items: center; /* 垂直居中对齐 */

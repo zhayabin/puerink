@@ -22,7 +22,7 @@ const PostContent: React.FC<Props> = ({ data }) => {
               src={data.thumbnail} // 图片源
               fill // 使图片充满容器
               alt={data.title} // 图片替代文本
-              css={{ objectFit: "cover", borderRadius: "3px" }} // 确保图片按比例裁剪
+              css={{ objectFit: "cover", borderRadius: "0px" }} // 确保图片按比例裁剪
             />
           </div>
       )}

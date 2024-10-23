@@ -33,7 +33,7 @@ class MyDocument extends Document {
             />
           )}
           {/* Twikoo script */}
-          <script src="/twikoo.nocss.js" defer></script> {/* 修改为本地路径 */}
+          <script src="/twikoo.min.js" defer></script> {/* 修改为本地路径 */}
         </Head>
         <body>
           <Main />

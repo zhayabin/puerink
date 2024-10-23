@@ -29,42 +29,15 @@ const StyledWrapper = styled.div<{ isFocused: boolean }>`
   position: relative;
 
   > .mid {
-    padding: 0.2rem 0;
-    font-size: 1rem;
-    padding-left: 0.3rem;
-    padding-right: 0.3rem;
-    line-height: 1.5;
+    font-size: 16px;
     border: none;
     background-color: transparent;
-    width: 100%;
     box-shadow: none;
+    width: 6rem;
     outline: none;
-
-    &::placeholder {
-      color: ${({ theme }) => theme.colors.gray9};
-      opacity: 1;
-      line-height: 1.5;
+    color: ${({ theme }) => theme.colors.gray11};
+    @media (min-width: 540px) {
+     width: 8rem;
     }
   }
-
-  .underline {
-    position: absolute;
-    bottom: 0;
-    height: 1.5px;
-    background-color: ${({ theme }) => theme.colors.gray9}; // 默认颜色
-    width: 100%;
-    transition: background-color 0.3s; // 添加过渡效果
-  }
-
-  // 鼠标悬停时的效果
-  &:hover .underline {
-    background-color: #20973A; // 悬停时的颜色
-  }
-
-  // 点击后保持颜色
-  ${({ isFocused }) => isFocused && `
-    .underline {
-      background-color: #20973A; // 点击后保持的颜色
-    }
-  `}
 `;

@@ -59,21 +59,6 @@ const CONFIG = {
     envId: "https://puerinktwikoo.netlify.app/.netlify/functions/twikoo", // 例如：https://your-twikoo-instance.netlify.app
   },
 
-  giscus: {
-    enable: false, // 启用 Giscus 评论
-    config: {
-      repo: "zhayabin/puerink", // 替换为你的 GitHub 仓库
-      repoId: "R_kgDOM1ZZJA",          // 替换为仓库的 repoId
-      category: "Announcements",       // 替换为你选择的分类
-      categoryId: "DIC_kwDOM1ZZJM4Cir-s",   // 替换为分类的 categoryId
-      mapping: "pathname",             // 评论关联方式，比如 'pathname', 'url', 'title' 等
-      strict: "0",
-      emitMetadata: "0",               // 是否启用元数据发送
-      theme: "preferred_color_scheme", // 设置评论的主题（light 或 dark）
-      lang: "zh-CN",                   // 设置语言
-      crossorigin: "anonymous",        // 设置跨域请求
-    },
-  },
   isProd: process.env.VERCEL_ENV === "production", // 区分开发和生产环境 (参考: https://vercel.com/docs/environment-variables#system-environment-variables)
   // revalidateTime: 21600, // 如果不需要，可以删除或注释掉
 }

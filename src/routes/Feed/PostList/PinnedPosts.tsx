@@ -27,7 +27,7 @@ const PinnedPosts: React.FC<Props> = ({ q }) => {
   return (
     <StyledWrapper>
       <div className="wrapper">
-        <div className="header"> 置顶文章⇪</div>
+        <div className="header"> 置顶</div>
       </div>
       <div className="PostContent">
         {filteredPosts.map((post) => (
@@ -49,8 +49,8 @@ const StyledWrapper = styled.div`
     position: absolute; // 绝对定位
     z-index: 1; // 确保在上方
     background-color: ${({ theme }) => theme.colors.green8}; // 半透明背景
-    padding: 3px 3px 4px 7px; // 内边距
-    border-radius: 3px 0 2px 0; // 圆角
+    padding: 3px 3px 3px 3px; // 内边距
+    border-radius: 0 0 0 0; // 圆角
     font-size: 12px
   }
 

@@ -7,8 +7,6 @@ import Image from "next/image" // 导入 Next.js 的 Image 组件，用于图片
 import Category from "../../../components/Category" // 导入分类组件
 import styled from "@emotion/styled" // 导入 Emotion 的 styled 组件，用于样式化
 import CommentCount from '../../../routes/Detail/PostDetail/CommentBox/CommentCount';
-import VisitorCount from '../../../routes/Detail/PostDetail/CommentBox/VisitorCount';
-
 
 
 // 定义 Props 类型，包含 data 属性
@@ -34,11 +32,6 @@ const PostCard: React.FC<Props> = ({ data }) => {
           <div className="CommentCount">
             <CommentCount
               urls={[`/${data.slug}`]} // 传递当前文章的 slug
-              envId={CONFIG.twikoo.envId} // 传递环境 ID
-            />
-          </div>
-          <div className="VisitorCount">
-            <VisitorCount
               envId={CONFIG.twikoo.envId} // 传递环境 ID
             />
           </div>
@@ -77,7 +70,7 @@ const PostCard: React.FC<Props> = ({ data }) => {
                 src={data.thumbnail}
                 fill
                 alt={data.title}
-                css={{ objectFit: "cover", borderRadius: "3px" }}
+                css={{ objectFit: "cover", borderRadius: "0px" }}
               />
             </div>
           )}
@@ -140,7 +133,7 @@ const StyledWrapper = styled(Link)`
       font-size: 12px; /* 字体大小 */
       margin-left: 0.2rem;
       white-space: nowrap; /* 防止换行 */
-      color: ${({ theme }) => theme.colors.gray12}; /* 字体颜色 */
+      color: #FFFFFF; /* 字体颜色 */
       p {
         margin: 0;
       }
@@ -153,7 +146,7 @@ const StyledWrapper = styled(Link)`
       ltft: 0; /* 向左对齐 */
       z-index: 1; /* 确保标签在缩略图上方 */
       justify-content: space-between;
-      color: ${({ theme }) => theme.colors.gray12};
+      color: #FFFFFF;
       font-size: 12px; /* 字体大小 */
       padding: 0.5rem;
 
@@ -174,17 +167,6 @@ const StyledWrapper = styled(Link)`
       @media (min-width: 540px) {
         padding-bottom: 61.8%; /* 调整 PC 图显示高度 */
       }
-    }
-    .thumbnail::after {
-      content: "";
-      position: absolute;
-      top: 80%;
-      left: 0;
-      right: 0;
-      bottom: -1px;
-      overflow: hidden; /* 超出隐藏 */
-      background: linear-gradient(to top, ${({ theme }) => theme.colors.gray1} 1%, transparent 100%);
-      opacity: 0.5; // 禁用时的透明度
     }
 
     > .content {

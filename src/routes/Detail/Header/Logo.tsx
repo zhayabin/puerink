@@ -7,7 +7,7 @@ const Logo = () => {
   return (
     <StyledWrapper href="/" aria-label={CONFIG.blog.title}>
       <Image
-        src="/apple-touch-icon.png" // 替换为你的logo路径
+        src="/favicon2.png" // 替换为你的logo路径
         alt="logo"
         width={31} // 可以根据需要调整宽高
         height={31}
@@ -22,7 +22,6 @@ export default Logo
 const StyledWrapper = styled(Link)`
   font-size: 2rem; /* 调整 Logo 的字体大小 */
   font-weight: 600; /* 设置字体粗细 */
-  text-decoration: none; /* 移除下划线 */
   color: inherit; /* 继承父元素的颜色 */
   display: flex; /* 使用 flex 布局，让 logo 和文字水平排列 */
   align-items: center; /* 使图像和文字垂直居中 */

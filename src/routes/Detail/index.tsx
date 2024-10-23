@@ -17,7 +17,7 @@ const Detail: React.FC<Props> = () => {
   return (
 
     <StyledWrapper data-type={data.type}>
-      <div className="guding">
+      <div className="header">
        <Header fullWidth={false} q={q} setQ={setQ}/>
       </div>
       {data.type[0] === "Page" && <PageDetail />}
@@ -39,7 +39,7 @@ const StyledWrapper = styled.div`
     padding-right: 0rem;
   }
 
-  > .guding {
+  > .header {
     position: sticky;
     top: 0; // 顶部对齐
     left: 0;

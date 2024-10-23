@@ -18,7 +18,7 @@ const Footer: React.FC<Props> = ({ className }) => {
         target="_blank"
         rel="noreferrer"
       >
-        ©2021-{from === y || !from ? y : `${from} - ${y}`}{CONFIG.profile.name}·版权所有
+        ©2021-{from === y || !from ? y : `${from} - ${y}`}{CONFIG.profile.name}. 版权所有
       </a>
     </StyledWrapper>
   )
@@ -28,8 +28,7 @@ export default Footer
 
 const StyledWrapper = styled.div`
   a {
-    margin-top: 2rem;
-    font-size: 0.875rem;
+    font-size: 12px;
     line-height: 0rem;
     color: ${({ theme }) => theme.colors.gray10};
     opacity: 1; /* 0.0 到 1.0 之间的值，0.0 为完全透明，1.0 为完全不透明 */
