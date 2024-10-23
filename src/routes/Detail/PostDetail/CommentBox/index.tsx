@@ -2,18 +2,12 @@ import { TPost } from 'src/types'
 import { CONFIG } from 'site.config'
 import dynamic from 'next/dynamic'
 
-const GiscusComponent = dynamic(
+// 动态导入 Waline 组件
+const WalineComponent = dynamic(
   () => {
-    return import('./Giscus')
+    return import('./Waline') // 指向你的 Waline 组件路径
   },
-  { ssr: false }
-)
-
-const TwikooComponent = dynamic(
-  () => {
-    return import('./Twikoo')
-  },
-  { ssr: false }
+  { ssr: false } // 在客户端渲染
 )
 
 type Props = {
@@ -23,11 +17,8 @@ type Props = {
 const CommentBox: React.FC<Props> = ({ data }) => {
   return (
     <div>
-      {CONFIG.giscus.enable && (
-        <GiscusComponent id={data.id} slug={data.slug} title={data.title} />
-      )}
-      {CONFIG.twikoo.enable && (
-        <TwikooComponent id={data.id} slug={data.slug} title={data.title} />
+      {CONFIG.waline.enable && (
+        <WalineComponent id={data.id} slug={data.slug} title={data.title} />
       )}
     </div>
   )

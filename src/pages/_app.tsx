@@ -2,7 +2,7 @@ import { AppPropsWithLayout } from "../types";
 import { Hydrate, QueryClientProvider } from "@tanstack/react-query";
 import { RootLayout } from "src/layouts";
 import { queryClient } from "src/libs/react-query";
-import '../styles/twikoo.css'; // 引入 Twikoo 样式
+import 'src/styles/waline.css'; // 引入 waline.css 到全局
 
 
 function App({ Component, pageProps }: AppPropsWithLayout) {
