@@ -77,9 +77,6 @@ const TwikooComponent: React.FC<Props> = ({ id, slug, title }) => {
       {loading && <p>加载评论中...</p>}
       {error && <p style={{ color: 'red' }}>{error}</p>}
       <div id="twikoo" />
-      <div>
-        阅读量: <span id="twikoo_visitors">{visitorCount}</span> {/* 显示阅读量 */}
-      </div>
     </div>
   );
 };

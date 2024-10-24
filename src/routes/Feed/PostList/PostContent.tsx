@@ -116,6 +116,7 @@ const StyledWrapper = styled(Link)`
       h2 {
         margin-bottom: 0rem; /* 底部间距 */
         font-size: 17px; /* 字体大小 */
+        font-weight: 500;
         line-height: 1.5rem; /* 行高 */
         cursor: pointer; /* 鼠标指针变为手型 */
         display: -webkit-box;

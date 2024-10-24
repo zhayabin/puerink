@@ -61,7 +61,9 @@ const StyledClose = styled.button`
   cursor: pointer;
   outline: none;
   padding: 0;
-  margin-right: 0.2rem;
+  margin-right: 0.4rem;
+  margin-left: 0.5rem;
+
 
   &:hover {
     color: #20973a; /* 悬停时的颜色 */

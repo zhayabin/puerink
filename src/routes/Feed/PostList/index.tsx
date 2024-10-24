@@ -166,7 +166,8 @@ const PaginationContainer = styled.div`
     }
 
     &:hover {
-      text-decoration: underline; // 鼠标悬停下划线
+      font-weight: 600;
+      color: #20973A; // 选中颜色
     }
 
     &:disabled {

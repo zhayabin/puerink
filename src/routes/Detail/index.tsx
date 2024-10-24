@@ -3,7 +3,7 @@ import PostDetail from "./PostDetail"
 import PageDetail from "./PageDetail"
 import styled from "@emotion/styled"
 import usePostQuery from "src/hooks/usePostQuery"
-import Header from "./Header"
+import Header from "src/routes/Feed/Header"
 import { useState } from "react"
 
 type Props = {}
@@ -18,7 +18,7 @@ const Detail: React.FC<Props> = () => {
 
     <StyledWrapper data-type={data.type}>
       <div className="header">
-       <Header fullWidth={false} q={q} setQ={setQ}/>
+       <Header fullWidth={false} />
       </div>
       {data.type[0] === "Page" && <PageDetail />}
       {data.type[0] !== "Page" && <PostDetail />}
@@ -34,7 +34,7 @@ const StyledWrapper = styled.div`
   padding-left: 1rem;
   padding-right: 1rem;
 
-  @media (max-width: 767px) {
+  @media (max-width: 540px) {
     padding-left: 0rem;
     padding-right: 0rem;
   }

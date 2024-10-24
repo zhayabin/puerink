@@ -54,9 +54,9 @@ const CONFIG = {
     },
   },
 
-  waline: {
+  twikoo: {
     enable: true,
-    serverURL: 'https://puerinkwaline.netlify.app/.netlify/functions/comment',
+    envId: 'https://puerinktwikoo.netlify.app/.netlify/functions/twikoo',
     comment: true,
   },
 

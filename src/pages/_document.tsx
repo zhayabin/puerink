@@ -33,11 +33,7 @@ class MyDocument extends Document {
             />
           )}
           {/* Twikoo script */}
-<<<<<<< HEAD
           <script src="/twikoo.min.js" defer></script> {/* 修改为本地路径 */}
-=======
-          <script src="/waline.js" defer></script> {/* 修改为本地路径 */}
->>>>>>> af156cbb68124db3cf7846f159eb83e77ec6aa11
         </Head>
         <body>
           <Main />

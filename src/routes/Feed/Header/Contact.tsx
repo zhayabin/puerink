@@ -37,7 +37,7 @@ const StyledTitle = styled.div`
 const StyledWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  font-size: 16px;
+  font-size: 14px;
   margin-bottom: 0rem;
   gap: 0.5rem; /* 调整标签之间的间距 */
 
@@ -48,8 +48,7 @@ const StyledWrapper = styled.div`
 
   a:hover, a:active {
     color: #20973A; /* 悬停时的文字颜色 */
-    text-decoration: underline; /* 添加下划线 */
-    text-underline-offset: 3px; /* 设置下划线与文字的距离 */
+    font-weight: 600;
   }
 
   .name {

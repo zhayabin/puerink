@@ -1,29 +1,25 @@
 import styled from "@emotion/styled";
-import React, { InputHTMLAttributes, useState } from "react";
+import React, { InputHTMLAttributes } from "react";
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {}
 
 const SearchInput: React.FC<Props> = ({ ...props }) => {
-  const [isFocused, setIsFocused] = useState(false); // 管理输入框聚焦状态
-
   return (
-    <StyledWrapper isFocused={isFocused}>
+    <StyledWrapper>
       <input
         className="mid"
         type="text"
         placeholder="搜索..."
-        onFocus={() => setIsFocused(true)} // 当输入框被聚焦时
-        onBlur={() => setIsFocused(false)} // 当输入框失去聚焦时
         {...props}
       />
-      <div className={`underline ${isFocused ? 'active' : ''}`} /> {/* 动态应用类名 */}
+      <div className="underline" /> {/* 如果需要，可以考虑动态应用类名 */}
     </StyledWrapper>
   );
 };
 
 export default SearchInput;
 
-const StyledWrapper = styled.div<{ isFocused: boolean }>`
+const StyledWrapper = styled.div`
   margin-top: 0rem;
   margin-bottom: 0rem;
   position: relative;
@@ -33,11 +29,11 @@ const StyledWrapper = styled.div<{ isFocused: boolean }>`
     border: none;
     background-color: transparent;
     box-shadow: none;
-    width: 6rem;
+    width: 7rem;
     outline: none;
-    color: ${({ theme }) => theme.colors.gray11};
+    color: ${({ theme }) => theme.colors.gray12};
     @media (min-width: 540px) {
-     width: 8rem;
+      width: 12rem;
     }
   }
 `;

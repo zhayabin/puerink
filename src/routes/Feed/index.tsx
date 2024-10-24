@@ -18,13 +18,13 @@ const Feed: React.FC<Props> = () => {
   return (
     <StyledWrapper>
       <div className="header">
-      <Header fullWidth={false} q={q} setQ={setQ}/>
+      <Header fullWidth={false}  />
       </div>
 
       <div className="new-section">
 
         <div className="left"> {/* 左侧内容 */}
-         <TagList />
+
         </div>
         <div className="right"> {/* 右侧内容Gif模组 */}
 
